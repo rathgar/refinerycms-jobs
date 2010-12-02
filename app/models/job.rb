@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
 
-  acts_as_indexed :fields => [:job_title, :description, :desired_skills, :required_skills, :employment_terms, :hours],
+  acts_as_indexed :fields => [:job_title, :description, :employment_terms, :hours],
                   :index_file => [Rails.root.to_s, "tmp", "index"]
 
   validates_presence_of :job_title, :description

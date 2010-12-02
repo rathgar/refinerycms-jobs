@@ -1,11 +1,8 @@
-<%= error_messages_for :job_application -%>
-
-<% form_for @job_application, :html => { :multipart => true } do |f| -%>
+<% form_for [@job, @job_application], :html => { :multipart => true } do |f| -%>
   <h1>Job Application for <%= @job.job_title%> position</h2>
   <div class='field'>
     <%= f.label :name, 'Full name:' -%><br>
     <%= f.text_field :name, :size => 60 -%>
-	<%= f.hidden_field :job_id, :value => @job.id %>
   </div>
   <br>
   <div class='field'>

@@ -1,8 +1,8 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job) -%>">
   <span class='title'>
     <span class='actions'>
-		<%= link_to refinery_icon_tag("application_go.png"), job_applications_admin_job_path(job),
-	          :title => 'View this applications for this job' %>
+    <%= link_to refinery_icon_tag("application_go.png"), job_applications_admin_job_path(job),
+            :title => 'View this applications for this job' %>
       <%= link_to refinery_icon_tag("application_go.png"), job_url(job),
           :title => 'View this job<br/><em>Opens in a new window</em>',
           :target => "_blank" %>

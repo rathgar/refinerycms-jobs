@@ -1,7 +1,7 @@
 <% content_for :body_content_left do %>
 <h1>Current open positions</h1>
   <% if @jobs.count == 0 %>
-	  There are no open positions at the moment.
+    There are no open positions at the moment.
   <% else %>
     <ul id="jobs">
       <% @jobs.each do |job| %>

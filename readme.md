@@ -6,7 +6,7 @@ __Jobs engine for Refinery allows you to post vacancies to the jobs section of y
 
 Key features:
 
-* 
+*
 
 ## Requirements
 
@@ -16,7 +16,7 @@ Key features:
 
 Include the latest [gem](http://rubygems.org/gems/refinerycms-news) into your Refinery CMS application's Gemfile:
 
-    gem "refinerycms-jobs", '~> 0.9.9', :git => 'git://github.com/jimcroft/refinerycms-jobs.git'
+    gem "refinerycms-jobs", '~> 0.9', :git => 'git://github.com/jimcroft/refinerycms-jobs.git'
 
 Then type the following at command line inside your Refinery CMS application's root directory:
 

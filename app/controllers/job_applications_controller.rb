@@ -11,6 +11,7 @@ class JobApplicationsController < ApplicationController
 
   def create
       @job_application = JobApplication.new(params[:job_application])
+      @job_application.job_id = params[:job_id]
       @job = @job_application.job
       respond_to do |format|
         if @job_application.save
@@ -28,8 +29,8 @@ class JobApplicationsController < ApplicationController
     # you can use meta fields from your model instead (e.g. browser_title)
     # by swapping @page for @jobs in the line below:
   end
-  
-  def show 
+
+  def show
     @job_application = JobApplication.find(params[:id])
     @job = @job_application.job
     present(@page)

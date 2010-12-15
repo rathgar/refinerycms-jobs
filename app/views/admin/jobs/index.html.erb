@@ -4,7 +4,7 @@
       <%= render :partial => "/shared/admin/search", :locals => {:url => admin_jobs_url} %>
     </li>
     <li>
-      <%= link_to "Create New Jobs", new_admin_job_url, :class => "add_icon" %>
+      <%= link_to "Create New Job", new_admin_job_url, :class => "add_icon" %>
     </li>
   <% if !searching? and Job.count > 1 %>
     <li>
@@ -33,7 +33,7 @@
       <p>
         <strong>
           There are no jobs yet.
-          Click "Create New Jobs" to add your first jobs.
+          Click "Create New Job" to add your first jobs.
         </strong>
       </p>
     <% end %>

@@ -21,7 +21,7 @@ class JobApplicationsController < ApplicationController
               rescue
                 logger.warn "There was an error delivering an inquiry notification.\n#{$!}\n"
               end
-          format.html { redirect_to(@job_application) }
+          format.html { redirect_to job_job_application_url(@job, @job_application) }
         else
           format.html { render :action => "new" }
         end

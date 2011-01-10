@@ -16,7 +16,7 @@ Key features:
 
 Include the latest [gem](http://rubygems.org/gems/refinerycms-news) into your Refinery CMS application's Gemfile:
 
-    gem "refinerycms-jobs", '~> 0.9', :git => 'git://github.com/jimcroft/refinerycms-jobs.git'
+    gem "refinerycms-jobs", :git => 'git://github.com/parndt/refinerycms-jobs'
 
 Then type the following at command line inside your Refinery CMS application's root directory:
 

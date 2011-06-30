@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.description       = %q{A really straightforward open source Ruby on Rails jobs engine designed for integration with RefineryCMS.}
   s.date              = %q{#{Time.now.strftime('%Y-%m-%d')}}
   s.summary           = %q{Ruby on Rails jobs engine for RefineryCMS.}
-  s.authors           = %w(Jim\\ Croft Rafael\\ Cardoso)
+  s.authors           = %w(Jim\\ Croft Rafael\\ Cardoso Mark\\ Carlson)
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '~> 0.9.8'
+  s.add_dependency    'refinerycms', '~> 1.0.3'
   s.add_dependency    'paperclip'
 
   s.files             = [

@@ -11,6 +11,7 @@ Key features:
 ## Requirements
 
 [RefineryCMS](http://refinerycms.com) version 1.0.3 or later.
+Paperclip
 
 ### Gem Installation using Bundler (The very best way)
 

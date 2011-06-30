@@ -2,7 +2,7 @@ module Refinery
   module Jobs
     class << self
       def version
-        %q{0.9.0.14}
+        %q{1.0.0.0}
       end
     end
   end

@@ -4,11 +4,15 @@ Refinery::Application.routes.draw do
   end
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
-    resources :jobs do
-      member do
-        get :job_applications
+    resources :jobs, :except => :show do
+      collection do
+        post :update_positions
       end
-    end 
+	  member do
+		get :job_applications
+      end
+	end 
   end
 end
+
 

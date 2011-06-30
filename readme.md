@@ -10,13 +10,13 @@ Key features:
 
 ## Requirements
 
-[RefineryCMS](http://refinerycms.com) version 0.9.8 or later.
+[RefineryCMS](http://refinerycms.com) version 1.0.3 or later.
 
 ### Gem Installation using Bundler (The very best way)
 
-Include the latest [gem](http://rubygems.org/gems/refinerycms-news) into your Refinery CMS application's Gemfile:
+Include the latest [gem](http://rubygems.org/gems/refinerycms) into your Refinery CMS application's Gemfile:
 
-    gem "refinerycms-jobs", :git => 'git://github.com/parndt/refinerycms-jobs'
+    gem "refinerycms-jobs", :git => 'git://github.com/markcarlson/refinerycms-jobs'
 
 Then type the following at command line inside your Refinery CMS application's root directory:
 

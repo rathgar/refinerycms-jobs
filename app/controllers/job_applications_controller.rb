@@ -19,7 +19,7 @@ class JobApplicationsController < ApplicationController
               begin
                 JobMailer.deliver_notification(@job_application, request)
               rescue
-                logger.warn "There was an error delivering an inquiry notification.\n#{$!}\n"
+                logger.warn "There was an error delivering a notification.\n#{$!}\n"
               end
           format.html { redirect_to job_job_application_url(@job, @job_application) }
         else

@@ -1,6 +1,6 @@
 class Admin::JobsController < Admin::BaseController
 
-  crudify :job, :title_attribute => :job_title
+  crudify :job, :title_attribute => :title
 
   def job_applications
     @job_applications = JobApplication.paginate :page => params[:page],

@@ -1,5 +1,5 @@
 <% form_for [@job, @job_application], :html => { :multipart => true } do |f| -%>
-  <h1>Job Application for <%= @job.job_title%> position</h2>
+  <h1>Job Application for <%= @job.title %> position</h2>
   <div class='field'>
     <%= f.label :name, 'Full name:' -%><br>
     <%= f.text_field :name, :size => 60 -%>
@@ -8,7 +8,7 @@
   <div class='field'>
     <%= f.label :email, 'E-mail:' -%><br>
     <%= f.text_field :email, :size => 60 -%>
-  </div> 
+  </div>
   <br>
   <div class='field'>
     <%= f.label :phone, 'Phone number:' -%><br>

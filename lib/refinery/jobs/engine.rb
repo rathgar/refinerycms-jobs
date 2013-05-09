@@ -3,7 +3,7 @@ module Refinery
     class Engine < Rails::Engine
       include Refinery::Engine
 
-      isolate_namespace Refinery
+      isolate_namespace Refinery::Jobs
       engine_name :refinery_jobs
 
       config.autoload_paths += %W( #{config.root}/lib )
@@ -20,7 +20,7 @@ module Refinery
           plugin.version    = '2.0.0'
           plugin.menu_match = /(admin|refinery)\/(jobs|vacancies)?$/
           plugin.activity   = { :class_name => :'refinery/jobs/job' }
-          plugin.url        = proc { Refinery::Core::Engine.routes.url_helpers.admin_jobs_path }
+          plugin.url        = proc { Refinery::Core::Engine.routes.url_helpers.jobs_admin_jobs_path }
         end
       end
 

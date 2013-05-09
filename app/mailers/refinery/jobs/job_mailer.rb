@@ -1,5 +1,5 @@
 module Refinery
-
+module Jobs
     class JobMailer < ActionMailer::Base
 
       def notification(job_application, request)
@@ -11,5 +11,5 @@ module Refinery
       end
 
     end
-
+end
 end

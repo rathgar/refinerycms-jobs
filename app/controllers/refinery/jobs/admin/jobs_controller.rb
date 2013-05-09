@@ -1,4 +1,5 @@
 module Refinery
+  module Jobs
   module Admin
     class JobsController < ::Refinery::AdminController
 
@@ -10,4 +11,5 @@ module Refinery
       end
     end
   end
+end
 end

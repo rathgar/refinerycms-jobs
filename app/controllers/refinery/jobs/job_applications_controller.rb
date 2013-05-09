@@ -1,4 +1,5 @@
 module Refinery
+  module Jobs
   class JobApplicationsController < ::ApplicationController
 
     before_filter :find_all_job_applications
@@ -56,5 +57,5 @@ module Refinery
     end
 
   end
-
+end
 end

@@ -1,7 +1,7 @@
 class CreateJobs < ActiveRecord::Migration
 
   def self.up
-    create_table :jobs do |t|
+    create_table Refinery::Jobs::Job.table_name, :id => true do |t|
       t.string      :title
       t.text        :description
       t.string      :employment_terms
@@ -11,9 +11,9 @@ class CreateJobs < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :jobs, :id
+    add_index Refinery::Jobs::Job.table_name, :id
 
-    create_table :job_applications do |t|
+    create_table Refinery::Jobs::JobApplication.table_name, :id => true do |t|
       t.string      :job_id
       t.string      :name
       t.string      :phone
@@ -24,24 +24,16 @@ class CreateJobs < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :job_applications, :id
-    add_index :job_applications, :job_id
-
-    load(Rails.root.join('db', 'seeds', 'refinerycms_jobs.rb').to_s)
+    add_index Refinery::Jobs::JobApplication.table_name, :id
+    add_index Refinery::Jobs::JobApplication.table_name, :job_id
   end
 
   def self.down
-    UserPlugin.destroy_all({:title => "Jobs"})
+    Refinery::UserPlugin.destroy_all({:name => "refinerycms_job"})
+    Refinery::Page.delete_all({:link_url => "/jobs"})
 
-    Page.find_all_by_link_url("/jobs").each do |page|
-      page.link_url, page.menu_match = nil
-      page.deletable = true
-      page.destroy
-    end
-    Page.destroy_all({:link_url => "/jobs"})
-
-    drop_table :jobs
-    drop_table :job_applications
+    drop_table Refinery::Jobs::Job.table_name
+    drop_table Refinery::Jobs::JobApplication.table_name
   end
 
 end

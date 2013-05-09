@@ -7,6 +7,7 @@ module Refinery
   module Jobs
     require 'refinery/jobs/engine'
     require 'refinery/jobs/configuration'
+    autoload :Dragonfly, 'refinery/jobs/dragonfly'
 
     class << self
       def root

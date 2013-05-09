@@ -1,6 +1,10 @@
+require 'dragonfly'
+
 module Refinery
   module Jobs
     class JobApplication < ActiveRecord::Base
+      ::Refinery::Jobs::Dragonfly.setup!
+
       HUMANIZED_COLUMNS = {:resume_file_name => "Resume"}
 
       belongs_to :job, :class_name => "Job", :foreign_key => "job_id"

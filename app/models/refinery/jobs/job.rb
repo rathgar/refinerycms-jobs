@@ -1,7 +1,6 @@
 module Refinery
   module Jobs
     class Job < ActiveRecord::Base
-
       acts_as_indexed :fields => [:title, :description, :employment_terms, :hours]
 
       has_many :job_applications, :class_name => "job_application"

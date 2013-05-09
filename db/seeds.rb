@@ -11,7 +11,7 @@ if defined?(Refinery::Page) and !Refinery::Page.exists?(:link_url => '/jobs')
     :title => "Jobs",
     :link_url => "/jobs",
     :deletable => false,
-    :position => ((Page.maximum(:position, :conditions => {:parent_id => nil}) || -1)+1),
+    :position => ((Refinery::Page.maximum(:position, :conditions => {:parent_id => nil}) || -1)+1),
     :menu_match => "^/jobs?(\/|\/.+?|)$"
   )
 

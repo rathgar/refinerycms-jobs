@@ -1,6 +1,6 @@
 module Refinery
-  module Jobs
-    class Admin::JobsController < Admin::BaseController
+  module Admin
+    class JobsController < ::Refinery::AdminController
 
       crudify :job, :title_attribute => :title
 

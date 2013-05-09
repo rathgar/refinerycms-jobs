@@ -1,7 +1,7 @@
 require 'dragonfly'
 
 module Refinery
-  module Jobs
+
     class JobApplication < ActiveRecord::Base
       ::Refinery::Jobs::Dragonfly.setup!
 
@@ -20,5 +20,5 @@ module Refinery
         HUMANIZED_COLUMNS[attribute.to_sym] || super
       end
     end
-  end
+
 end

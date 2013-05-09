@@ -3,7 +3,6 @@
 <% end %>
 
 <% content_for :body_content_left do %>
-
   <div>
     <h1><%= @job.title %></h1>
   </div>
@@ -12,21 +11,20 @@
     <h2>Description</h2>
     <%= @job.description.html_safe %>
   </div>
-  <% unless @job.employment_terms.blank?%>
-  <div>
-    <h2 style='display:inline'>Employment Terms:</h2>  <%= @job.employment_terms.html_safe %>
-  </div>
-  <%end%>
+  <% unless @job.employment_terms.blank? %>
+    <div>
+      <h2 style='display:inline'>Employment Terms:</h2>  <%= @job.employment_terms.html_safe %>
+    </div>
+  <% end %>
   <% unless @job.hours.blank?%>
-  <br>
-  <div>
-    <h2 style='display:inline'>Hours:</h2>
-    <%= @job.hours.html_safe %>
-  </div>
-  <%end%>
+    <br>
+    <div>
+      <h2 style='display:inline'>Hours:</h2>
+      <%= @job.hours.html_safe %>
+    </div>
+  <% end %>
 
   <h1> <%= link_to 'Apply for this position', new_job_job_application_url(@job) %></h1>
-
 
 <% end %>
 
@@ -46,4 +44,4 @@
   <% end %>
 <% end %>
 
-<%= render :partial => "/shared/content_page" %>
+<%= render :partial => "/refinery/content_page" %>

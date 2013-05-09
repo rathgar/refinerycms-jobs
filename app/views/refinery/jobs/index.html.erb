@@ -1,0 +1,21 @@
+<% content_for :body_content_left do %>
+  <h1><%= t('.current_open_positions') %></h1>
+
+  <% if @jobs.any? %>
+    <section>
+      <ul id="jobs">
+        <% @jobs.each do |job| %>
+          <li>
+            <%= link_to job.title, job_url(job) %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+  <% else %>
+
+    <%= t('.no_open_positions') %>
+  <% end %>
+<% end %>
+
+<%= render :partial => "/refinery/content_page" %>

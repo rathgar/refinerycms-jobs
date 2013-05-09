@@ -2,7 +2,7 @@ class CreateJobs < ActiveRecord::Migration
 
   def self.up
     create_table :jobs do |t|
-      t.string      :job_title
+      t.string      :title
       t.text        :description
       t.string      :employment_terms
       t.string      :hours
@@ -19,16 +19,14 @@ class CreateJobs < ActiveRecord::Migration
       t.string      :phone
       t.string      :email
       t.text        :cover_letter
-      t.string      :resume_file_name
-      t.string      :resume_content_type
-      t.integer     :resume_file_size
-      t.datetime    :resume_updated_at
+      t.string      :resume_uid
+      t.string      :resume_name
       t.timestamps
     end
 
     add_index :job_applications, :id
     add_index :job_applications, :job_id
-    
+
     load(Rails.root.join('db', 'seeds', 'refinerycms_jobs.rb').to_s)
   end
 

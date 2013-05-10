@@ -1,15 +1,15 @@
 <div id='actions'>
   <ul>
     <li>
-      <%= render :partial => "/shared/admin/search", :locals => {:url => admin_jobs_url} %>
+      <%= render :partial => "/refinery/admin/search", :locals => {:url => refinery.jobs_admin_jobs_path} %>
     </li>
     <li>
-      <%= link_to "Create New Job", new_admin_job_url, :class => "add_icon" %>
+      <%= link_to "Create New Job", refinery.new_jobs_admin_job_path, :class => "add_icon" %>
     </li>
-  <% if !searching? and Job.count > 1 %>
+  <% if !searching? and Refinery::Jobs::Job.count > 1 %>
     <li>
-      <%= link_to "Reorder Jobs", admin_jobs_url, :id => "reorder_action", :class => "reorder_icon" %>
-      <%= link_to "Done Reordering Jobs", admin_jobs_url, :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
+      <%= link_to "Reorder Jobs", refinery.jobs_admin_jobs_path, :id => "reorder_action", :class => "reorder_icon" %>
+      <%= link_to "Done Reordering Jobs", refinery.jobs_admin_jobs_path, :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
     </li>
   <% end %>
   </ul>
@@ -39,4 +39,4 @@
     <% end %>
   <% end %>
 </div>
-<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => false } if !searching? and Job.count > 1 %>
+<%= render :partial => "/refinery/admin/make_sortable", :locals => {:tree => false } if !searching? and Refinery::Jobs::Job.count > 1 %>

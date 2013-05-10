@@ -1,15 +1,16 @@
 module Refinery
-module Jobs
+  module Jobs
     class JobMailer < ActionMailer::Base
+      default from: "\"#{Refinery::Core.site_name}\" <no-reply@wtca.org>"
 
       def notification(job_application, request)
-        subject     "New job application from your website"
-        recipients  InquirySetting.notification_recipients.value
-        from        "\"#{RefinerySetting[:site_name]}\" <no-reply@#{request.domain(RefinerySetting.find_or_set(:tld_length, 1))}>"
-        sent_on     Time.now
-        body        :job_application => job_application
+        @job_application = job_application
+        @host            = [request.protocol, request.host_with_port].join
+
+        mail(:to      => Refinery::Setting.get('job_applications_recipients', scoping: 'jobs'),
+             :subject => Refinery::Setting.get('job_applications_email_subject', scoping: 'jobs'))
       end
 
     end
-end
+  end
 end

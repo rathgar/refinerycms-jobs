@@ -1,4 +1,4 @@
-<% form_for [:admin, @job] do |f| -%>
+<%= form_for [refinery, :jobs, :admin, @job] do |f| -%>
 
   <div class='field'>
     <%= f.label :title -%>
@@ -20,5 +20,5 @@
     <%= f.text_field :hours -%>
   </div>
 
-  <%= render :partial => "/shared/admin/form_actions", :locals => {:f => f, :continue_editing => false} %>
-<% end -%>
+  <%= render :partial => "/refinery/admin/form_actions", :locals => {:f => f, :continue_editing => false} %>
+<% end %>

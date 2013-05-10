@@ -5,14 +5,17 @@
                 :title => 'View applications for this job' %>
       <%= link_to refinery_icon_tag("application_go.png"), refinery.jobs_job_url(job),
                 :title  => 'View this job<br/><em>Opens in a new window</em>',
-                :target => "_blank" %>
+                :target => "_blank",
+                :id     => dom_id(job, 'view') %>
       <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_jobs_admin_job_path(job),
-                :title => 'Edit this job' %>
+                :title => 'Edit this job',
+                :id    => dom_id(job, 'edit') %>
       <%= link_to refinery_icon_tag("delete.png"), refinery.jobs_admin_job_path(job),
                 :class   => "cancel confirm-delete",
                 :method  => :delete,
                 :title   => 'Remove this job forever',
-                :confirm => 'Are you certain?' %>
+                :confirm => 'Are you certain?',
+                :id      => dom_id(job, 'delete') %>
     </span>
     <%=h job.title %> <span class="preview">&nbsp;</span>
   </span>

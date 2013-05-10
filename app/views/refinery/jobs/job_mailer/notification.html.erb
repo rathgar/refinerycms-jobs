@@ -1,6 +1,6 @@
 Hi there,<br/>
 <br/>
-You just received a new job application on your website.<br/>
+You just received a new job application on the WTCA website.<br/>
 <br/>
 <br/>
 From: <%= @job_application.name %><br/>
@@ -11,7 +11,4 @@ Cover Letter: <%= @job_application.cover_letter %><br/>
 Resume: <%= link_to 'Click here to download the resume', @job_application.resume.url(:host => @host) %><br/>
 <br/>
 <br/>
-Kind Regards,<br/>
-Your Website.<br/>
-<br/>
-P.S. All your inquiries are stored in the "Inquiries" section of Refinery should you ever want to view it later there.<br/>
+Manage all job applications here: <%= link_to refinery.jobs_admin_jobs_url, refinery.jobs_admin_jobs_url %>

@@ -12,6 +12,12 @@ module Refinery
       validates_presence_of   :title, :description
       validates_uniqueness_of :title
 
+      module ShareThis
+        def self.enabled?
+          Refinery::Jobs.share_this_key != "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        end
+      end
     end
+
   end
 end

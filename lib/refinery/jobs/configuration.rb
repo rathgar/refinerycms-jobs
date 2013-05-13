@@ -2,8 +2,8 @@ module Refinery
   module Jobs
     include ActiveSupport::Configurable
 
-    # config_accessor :test
+    config_accessor :share_this_key
 
-    #self.runtimes = 'html5,flash,browserplus,silverlight,gears'
+    self.share_this_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   end
 end

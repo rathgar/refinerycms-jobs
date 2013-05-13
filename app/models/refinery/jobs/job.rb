@@ -7,7 +7,7 @@ module Refinery
 
       attr_accessible :title, :description, :employment_terms, :hours, :position
 
-      has_many :job_applications, :class_name => "job_application"
+      has_many :job_applications, :class_name => "Refinery::Jobs::JobApplication"
 
       validates_presence_of   :title, :description
       validates_uniqueness_of :title

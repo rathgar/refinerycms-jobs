@@ -7,7 +7,7 @@ module Refinery
 
         def job_applications
           find_job
-          @job.job_applications.paginate :page => params[:page]
+          @job_applications = @job.job_applications.paginate :page => params[:page]
         end
       end
     end

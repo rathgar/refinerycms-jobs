@@ -9,7 +9,7 @@ module Refinery
 
       HUMANIZED_COLUMNS = {:resume_file_name => "Resume"}
 
-      belongs_to :job, :class_name => "Job", :foreign_key => "job_id"
+      belongs_to :job, :class_name => "Refinery::Jobs::Job", :foreign_key => "job_id"
 
       resume_accessor :resume
 

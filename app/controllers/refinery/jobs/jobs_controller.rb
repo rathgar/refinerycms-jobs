@@ -22,7 +22,7 @@ module Refinery
     protected
 
       def find_all_jobs
-        @jobs = Refinery::Jobs::Job.find(:all, :order => "position ASC")
+        @jobs = Refinery::Jobs::Job.order("position ASC")
       end
 
       def find_page

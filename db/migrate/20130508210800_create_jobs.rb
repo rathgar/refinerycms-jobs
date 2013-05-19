@@ -15,7 +15,7 @@ class CreateJobs < ActiveRecord::Migration
 
     # can't use Model.table_name as it would load class and initializers haven't run to attach refinery_resources dragonfly app
     create_table 'refinery_job_applications', :id => true do |t|
-      t.string      :job_id
+      t.integer     :job_id
       t.string      :name
       t.string      :phone
       t.string      :email

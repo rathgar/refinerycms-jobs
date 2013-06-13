@@ -1,5 +1,9 @@
 en:
   refinery:
+    admin:
+      dashboard:
+        recent_job_applications:
+          latest_job_applications: Latest Job Applications
     plugins:
       refinery_jobs:
         title: Jobs

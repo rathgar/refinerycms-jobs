@@ -23,6 +23,10 @@ module Refinery
       def self.human_attribute_name(attribute, options={})
         HUMANIZED_COLUMNS[attribute.to_sym] || super
       end
+
+      def self.latest(number = 5)
+        limit(number).order('created_at DESC')
+      end
     end
   end
 end

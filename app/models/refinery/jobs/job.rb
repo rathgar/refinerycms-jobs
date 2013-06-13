@@ -12,6 +12,10 @@ module Refinery
       validates_presence_of   :title, :description
       validates_uniqueness_of :title
 
+      def self.latest(number = 5)
+        limit(number).order('created_at DESC')
+      end
+
       module ShareThis
         def self.enabled?
           Refinery::Jobs.share_this_key != "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

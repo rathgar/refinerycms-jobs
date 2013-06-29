@@ -26,11 +26,9 @@
 
   <h1><%= link_to 'Apply for this position', refinery.new_jobs_job_job_application_url(@job) %></h1>
 
-  <% if Refinery::Jobs::Job::ShareThis.enabled? %>
-    <span class='st_twitter_large' displayText='Tweet'></span>
-    <span class='st_linkedin_large' displayText='LinkedIn'></span>
-    <span class='st_email_large' displayText='Email'></span>
-  <% end %>
+  <span class='st_twitter_large' displayText='Tweet'></span>
+  <span class='st_linkedin_large' displayText='LinkedIn'></span>
+  <span class='st_email_large' displayText='Email'></span>
 
 <% end %>
 
@@ -55,5 +53,5 @@
 <% content_for :javascripts do %>
   <script type="text/javascript">var switchTo5x=true;</script>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-  <script type="text/javascript">stLight.options({publisher: "<%= Refinery::Jobs.share_this_key %>", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
-<% end if Refinery::Jobs::Job::ShareThis.enabled? %>
+  <script type="text/javascript">stLight.options({publisher: "<%= Refinery::Setting.find_or_set(:share_this_key, SHARE_THIS_KEY) %>", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+<% end %>

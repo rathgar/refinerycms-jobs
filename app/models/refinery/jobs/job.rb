@@ -16,11 +16,6 @@ module Refinery
         limit(number).order('created_at DESC')
       end
 
-      module ShareThis
-        def self.enabled?
-          Refinery::Jobs.share_this_key != "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        end
-      end
     end
 
   end

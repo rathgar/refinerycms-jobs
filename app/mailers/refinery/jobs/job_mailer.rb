@@ -7,8 +7,8 @@ module Refinery
         @job_application = job_application
         @host            = [request.protocol, request.host_with_port].join
 
-        mail(:to      => Refinery::Setting.get('job_applications_recipients', scoping: 'jobs'),
-             :subject => Refinery::Setting.get('job_applications_email_subject', scoping: 'jobs'))
+        mail to:      Refinery::Setting.find_or_set('job_applications_recipients', 'jobs@example.org', destroyable: false, scoping: 'jobs', restricted: false, form_value_type: 'text_area'),
+             subject: Refinery::Setting.find_or_set('job_applications_email_subject', 'New job application from your website', destroyable: false, scoping: 'jobs', restricted: false, form_value_type: 'text_area')
       end
 
     end

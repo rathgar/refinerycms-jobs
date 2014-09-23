@@ -5,16 +5,18 @@ module Refinery
     class JobApplication < ActiveRecord::Base
       self.table_name = 'refinery_job_applications'
 
-      ::Refinery::Jobs::Dragonfly.setup!
+      # ::Refinery::Jobs::Dragonfly.setup!
 
       HUMANIZED_COLUMNS = {:resume_file_name => "Resume"}
 
       belongs_to :job, :class_name => "Refinery::Jobs::Job", :foreign_key => "job_id"
 
-      resume_accessor :resume
+      # resume_accessor :resume
 
       validates_presence_of :name, :phone, :email, :cover_letter
-      validates_format_of   :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
+      validates :email, format: {
+        with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      }, length: { maximum: 255 }
       validates             :resume, :presence => true
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 

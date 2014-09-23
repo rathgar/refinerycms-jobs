@@ -2,33 +2,23 @@ module Refinery
   module Jobs
     class JobsController < ::ApplicationController
 
-      before_filter :find_all_jobs
-      before_filter :find_page
+      # helper :'refinery/blog/jobs'
+      before_filter :find_page, :find_all_jobs
+      before_filter :find_job
 
-      def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @jobs in the line below:
-        present(@page)
-      end
+      protected
 
-      def show
-        @job = Refinery::Jobs::Job.find(params[:id])
+        def find_all_jobs
+          @jobs = Refinery::Jobs::Job.order("position ASC")
+        end
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @jobs in the line below:
-        present(@page)
-      end
+        def find_page
+          @page = Refinery::Page.find_by(:link_url => '/jobs')
+        end
 
-    protected
-
-      def find_all_jobs
-        @jobs = Refinery::Jobs::Job.order("position ASC")
-      end
-
-      def find_page
-        @page = Refinery::Page.find_by_link_url("/jobs")
-      end
-
+        def find_job
+          @job = Refinery::Jobs::Job.find(params[:id])
+        end
     end
   end
 end

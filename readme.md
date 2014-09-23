@@ -2,7 +2,7 @@
 
 Jobs engine for [Refinery CMS](http://refinerycms.com) allows you to post vacancies to the jobs section of your website.
 
-This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/refinery/refinerycms-jobs/tree/2-0-stable).
+This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
 
 ## Requirements
 

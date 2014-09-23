@@ -1,29 +1,59 @@
-# Jobs
+# Refinery CMS Jobs
 
-## About
+Jobs engine for [Refinery CMS](http://refinerycms.com) allows you to post vacancies to the jobs section of your website.
 
-__Jobs engine for Refinery allows you to post vacancies to the jobs section of your website.__
-
-Key features:
-
-*
+This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/refinery/refinerycms-jobs/tree/2-0-stable).
 
 ## Requirements
 
-[RefineryCMS](http://refinerycms.com) version 1.0.3 or later.
+[Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
 Paperclip has been removed in favor of using Refinery Resources dragonfly app
 Refinery-Resources
 Refinery-Settings
 
-### Gem Installation using Bundler (The very best way)
+## Install
 
-Include the latest [gem](http://rubygems.org/gems/refinerycms) into your Refinery CMS application's Gemfile:
+Open up your ``Gemfile`` and add at the bottom this line:
 
-    gem "refinerycms-jobs", :git => 'git://github.com/markcarlson/refinerycms-jobs'
+```ruby
+gem 'refinerycms-jobs', git: 'https://github.com/bisscomm/refinerycms-jobs', branch: 'master'
+```
 
-Then type the following at command line inside your Refinery CMS application's root directory:
+Now, run ``bundle install``
 
-    bundle install
-    rails g refinery:jobs
+Next, to install the jobs plugin run:
+
+    rails generate refinery:jobs
+
+Run database migrations:
+
     rake db:migrate
-    rake db:reset # need to reseed
+
+Finally seed your database and you're done.
+
+    rake db:seed
+
+## Developing & Contributing
+
+The version of Refinery to develop this engine against is defined in the gemspec. To override the version of refinery to develop against, edit the project Gemfile to point to a local path containing a clone of refinerycms.
+
+### Testing
+
+Generate the dummy application to test against
+
+    $ bundle exec rake refinery:testing:dummy_app
+
+Run the test suite with [Guard](https://github.com/guard/guard)
+
+    $ bundle exec guard start
+
+Or just with rake spec
+
+    $ bundle exec rake spec
+
+
+## More Information
+* Check out our [Website](http://refinerycms.com/)
+* Documentation is available in the [guides](http://refinerycms.com/guides)
+* Questions can be asked on our [Google Group](http://group.refinerycms.org)
+* Questions can also be asked in our IRC room, [#refinerycms on freenode](irc://irc.freenode.net/refinerycms)

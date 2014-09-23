@@ -1,6 +1,6 @@
 class CreateJobs < ActiveRecord::Migration
 
-  def self.up
+  def up
     create_table Refinery::Jobs::Job.table_name, :id => true do |t|
       t.string      :title
       t.text        :description
@@ -29,7 +29,7 @@ class CreateJobs < ActiveRecord::Migration
     add_index 'refinery_job_applications', :job_id
   end
 
-  def self.down
+  def down
     Refinery::UserPlugin.destroy_all({:name => "refinerycms_job"})
     Refinery::Page.delete_all({:link_url => "/jobs"})
 

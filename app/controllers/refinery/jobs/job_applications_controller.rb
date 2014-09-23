@@ -1,6 +1,7 @@
 module Refinery
   module Jobs
     class JobApplicationsController < ::ApplicationController
+      include ControllerHelper
 
       before_filter :find_all_job_applications
       before_filter :find_page
@@ -13,7 +14,7 @@ module Refinery
       end
 
       def create
-        @job_application        = Refinery::Jobs::JobApplication.new(params[:job_application])
+        @job_application        = Refinery::Jobs::JobApplication.new(job_application_params)
         @job_application.job_id = params[:job_id]
         @job                    = @job_application.job
 
@@ -46,22 +47,15 @@ module Refinery
         end
       end
 
-    protected
-
-      def find_all_job_applications
-        @jobs = Refinery::Jobs::Job.find(:all, :order => "position ASC")
-      end
-
-      def find_page
-        @page = Refinery::Page.find_by_link_url("/jobs")
-      end
-
     private
-
       def job_application_params
-        params.require(:job_application).permit(:name, :email, :phone, :cover_letter, :resume)
+        params.require(:job_application).permit!
       end
 
+    protected
+      def find_all_job_applications
+        @jobs = Refinery::Jobs::Job.order("position ASC")
+      end
     end
   end
 end

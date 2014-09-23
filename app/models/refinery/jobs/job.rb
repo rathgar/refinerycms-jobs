@@ -5,8 +5,6 @@ module Refinery
 
       acts_as_indexed :fields => [:title, :description, :employment_terms, :hours]
 
-      attr_accessible :title, :description, :employment_terms, :hours, :position
-
       has_many :job_applications, :class_name => "Refinery::Jobs::JobApplication"
 
       validates_presence_of   :title, :description

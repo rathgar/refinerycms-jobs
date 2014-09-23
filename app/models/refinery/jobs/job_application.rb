@@ -13,8 +13,6 @@ module Refinery
 
       resume_accessor :resume
 
-      attr_accessible :name, :email, :phone, :cover_letter, :resume
-
       validates_presence_of :name, :phone, :email, :cover_letter
       validates_format_of   :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
       validates             :resume, :presence => true

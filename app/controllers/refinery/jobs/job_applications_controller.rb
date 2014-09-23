@@ -56,6 +56,12 @@ module Refinery
         @page = Refinery::Page.find_by_link_url("/jobs")
       end
 
+    private
+
+      def job_application_params
+        params.require(:job_application).permit(:name, :email, :phone, :cover_letter, :resume)
+      end
+
     end
   end
 end

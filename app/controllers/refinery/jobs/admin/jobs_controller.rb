@@ -9,6 +9,12 @@ module Refinery
           find_job
           @job_applications = @job.job_applications.paginate :page => params[:page]
         end
+
+        private
+
+          def job_params
+            params.require(:job).permit(:title, :description, :employment_terms, :hours, :position)
+          end
       end
     end
   end

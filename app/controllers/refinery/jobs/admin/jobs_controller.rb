@@ -11,7 +11,6 @@ module Refinery
         end
 
         private
-
           def job_params
             params.require(:job).permit(:title, :description, :employment_terms, :hours, :position)
           end

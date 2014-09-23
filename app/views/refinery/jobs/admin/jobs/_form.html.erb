@@ -2,28 +2,29 @@
 
   <div class='field'>
     <%= f.label :title -%>
-    <%= f.text_field :title, :class => 'larger' -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
   </div>
 
   <div class='field'>
     <%= f.label :description -%>
-    <%= f.text_area :description, :rows => 8, :cols => 140, :class => 'wymeditor' -%>
+    <%= f.text_area :description, :rows => 20, :class => 'wymeditor widest' -%>
   </div>
 
-  <% if can?(:assign_wtc, @job) %>
+  <%# WHAT IS THAT ? %>
+  <%# if can?(:assign_wtc, @job) %>
     <div class="field">
-      <%= f.label :world_trade_center_id, 'World Trade Center' %>
+      <%#= f.label :world_trade_center_id, 'World Trade Center' %>
       Leave blank to make job for the WTCA<br/>
-      <%= f.collection_select :world_trade_center_id, WorldTradeCenter.all, :id, :name, { include_blank: 'None' } %>
+      <%#= f.collection_select :world_trade_center_id, WorldTradeCenter.all, :id, :name, { include_blank: 'None' } %>
     </div>
 
-  <% else %>
-    <%= f.hidden_field :world_trade_center_id, value: current_refinery_user.world_trade_center_id %>
-  <% end %>
+  <%# else %>
+    <%#= f.hidden_field :world_trade_center_id, value: current_refinery_user.world_trade_center_id %>
+  <%# end %>
 
   <div class='field'>
     <%= f.label :employment_terms -%>
-    <%= f.text_field :employment_terms -%>
+    <%= f.text_field :employment_terms, :class => "widest" -%>
   </div>
 
   <div class='field'>

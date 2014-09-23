@@ -2,7 +2,7 @@
   <%= @job.title %>
 <% end %>
 
-<% content_for :body_content_left do %>
+<% content_for :body do %>
 
   <div>
      <h1>Job Application for <%= @job.title%> position</h2>
@@ -10,10 +10,6 @@
  Your job application for the <b><%= @job.title%></b> position was successfully submitted. <br><br>
 Thank you.
     <BR>
-<% end %>
-
-<% content_for :body_content_right do %>
-
 <% end %>
 
 <%= render :partial => "/refinery/content_page" %>

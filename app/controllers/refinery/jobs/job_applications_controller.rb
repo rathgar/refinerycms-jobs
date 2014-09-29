@@ -47,15 +47,10 @@ module Refinery
         end
       end
 
-    private
-      def job_application_params
-        params.require(:job_application).permit!
-      end
-
-    protected
-      def find_all_job_applications
-        @jobs = Refinery::Jobs::Job.order("position ASC")
-      end
+      private
+        def job_application_params
+          params.require(:job_application).permit!
+        end
     end
   end
 end

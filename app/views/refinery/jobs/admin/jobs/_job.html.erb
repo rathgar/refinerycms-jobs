@@ -1,24 +1,31 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job) -%>">
   <span class='title'>
-    <span class='actions'>
+    <%=h truncate(job.title, :length => 70)  %>
+    <span class="preview">
+      <% if job.draft? %>
+        <span class="label notice"><%= t('refinery.jobs.admin.jobs.job.draft') %></span>
+      <% else %>
+        <%= job.published_at.strftime('%b %d, %Y') %>
+      <% end %>
+    </span>
+  </span>
+
+  <span class='actions'>
     <% if !job.job_applications.blank? %>
       <%= link_to refinery_icon_tag("folder_open.png"), refinery.job_applications_jobs_admin_job_path(job),
                 :title => 'View applications for this job' %>
     <% end %>
-      <%= link_to refinery_icon_tag("application_go.png"), refinery.jobs_job_url(job),
-                :title  => 'View this job<br/><em>Opens in a new window</em>',
-                :target => "_blank",
-                :id     => dom_id(job, 'view') %>
-      <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_jobs_admin_job_path(job),
-                :title => 'Edit this job',
-                :id    => dom_id(job, 'edit') %>
-      <%= link_to refinery_icon_tag("delete.png"), refinery.jobs_admin_job_path(job),
-                :class   => "cancel confirm-delete",
-                :method  => :delete,
-                :title   => 'Remove this job forever',
-                :confirm => 'Are you certain?',
-                :id      => dom_id(job, 'delete') %>
-    </span>
-    <%=h job.title %> <span class="preview">&nbsp;</span>
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.jobs_job_url(job),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_jobs_admin_job_path(job),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.jobs_admin_job_path(job),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :method => :delete,
+        :data => {
+          :confirm => t('message', :scope => 'refinery.admin.delete', :title => job.title)
+        } %>
   </span>
 </li>

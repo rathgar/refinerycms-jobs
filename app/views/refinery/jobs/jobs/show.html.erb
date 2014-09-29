@@ -3,35 +3,22 @@
 <% end %>
 
 <% content_for :body do %>
-  <div>
-    <h1><%= @job.title %></h1>
-  </div>
+  <h2><%= t :description %></h2>
+  <%= @job.description.html_safe %>
 
-  <div>
-    <h2>Description</h2>
-    <%= @job.description.html_safe %>
-  </div>
   <% unless @job.employment_terms.blank? %>
-    <div>
-      <h2 style='display:inline'>Employment Terms:</h2>  <%= @job.employment_terms.html_safe %>
-    </div>
+    <h2><%= t :employment_terms %></h2>
+    <%= @job.employment_terms.html_safe %>
   <% end %>
+
   <% unless @job.hours.blank?%>
-    <br>
-    <div>
-      <h2 style='display:inline'>Hours:</h2>
-      <%= @job.hours.html_safe %>
-    </div>
+    <h2><%= t :hours %></h2>
+    <%= @job.hours.html_safe %>
   <% end %>
 
-  <h1><%= link_to 'Apply for this position', refinery.new_jobs_job_job_application_url(@job) %></h1>
-
+  <%= render :partial => "/refinery/jobs/job_applications/form" %>
 <% end %>
 
-<% content_for :body_content_right do %>
-
-<% end %>
+<% content_for :body_content_right do %><% end %>
 
 <%= render :partial => "/refinery/content_page" %>
-
-

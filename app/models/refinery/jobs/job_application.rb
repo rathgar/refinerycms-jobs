@@ -3,6 +3,8 @@ require 'dragonfly'
 module Refinery
   module Jobs
     class JobApplication < ActiveRecord::Base
+      extend FriendlyId
+
       self.table_name = 'refinery_job_applications'
 
       # ::Refinery::Jobs::Dragonfly.setup!

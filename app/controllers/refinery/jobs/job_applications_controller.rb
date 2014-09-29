@@ -8,14 +8,16 @@ module Refinery
 
       def new
         @job_application = Refinery::Jobs::JobApplication.new
-        @job             = Refinery::Jobs::Job.find(params[:job_id])
+        @job             = Refinery::Jobs::Job.friendly.find(params[:job_id])
 
         present(@page)
       end
 
       def create
-        @job_application        = Refinery::Jobs::JobApplication.new(job_application_params)
-        @job_application.job_id = params[:job_id]
+        @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
+        @job_id_integer  = Refinery::Jobs::Job.friendly.find(params[:job_id])
+
+        @job_application.job_id = @job_id_integer.id
         @job                    = @job_application.job
 
         respond_to do |format|

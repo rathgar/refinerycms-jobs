@@ -3,7 +3,7 @@ module Refinery
     module Admin
       class JobsController < ::Refinery::AdminController
 
-        crudify :'refinery/jobs/job', :title_attribute => :title
+        crudify :'refinery/jobs/job', :title_attribute => :title, :xhr_paging => true
 
         def job_applications
           find_job

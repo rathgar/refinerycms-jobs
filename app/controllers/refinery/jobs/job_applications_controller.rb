@@ -19,21 +19,28 @@ module Refinery
         @job_application.job_id = @job_id_integer.id
         @job                    = @job_application.job
 
-        respond_to do |format|
-          if @job_application.save
-            flash[:notice] = t('created', :scope => 'refinery.jobs.job_application.create')
+        if @job_application.save
+          if @job_application.ham?
+            #|| JobApplications.send_notifications_for_inquiries_marked_as_spam
             begin
-              Refinery::Jobs::JobMailer.notification(@job_application, request).deliver
+              JobMailer.notification(@job_application, request).deliver
             rescue
-              logger.warn "There was an error delivering a notification.\n#{$!}\n"
+              logger.warn "There was an error delivering on job application notification.\n#{$!}\n"
             end
-            format.html { redirect_to refinery.jobs_job_job_application_url(@job, @job_application) }
-          else
-            format.html { render :action => "new" }
+
+            if Setting.send_confirmation?
+              begin
+                JobMailer.confirmation(@job_application, request).deliver
+              rescue
+                logger.warn "There was an error delivering on job application confirmation:\n#{$!}\n"
+              end
+            end
           end
+
+          redirect_to refinery.jobs_job_job_application_url(@job, @job_application)
+        else
+          render :action => 'new'
         end
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @jobs in the line below:
       end
 
       def show

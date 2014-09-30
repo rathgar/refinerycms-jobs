@@ -34,14 +34,8 @@ module Refinery
             options.update(region: Refinery::Resources.s3_region) if Refinery::Resources.s3_region
             app_resources.use_datastore :s3, options
           end
-
-          if Resources.custom_backend?
-            app_resources.datastore = Resources.custom_backend_class.new(Resources.custom_backend_opts)
-          end
         end
 
-        ##
-        # Injects Dragonfly::Middleware for Refinery::Images into the stack
         def attach!(app)
           if defined?(::Rack::Cache)
             unless app.config.action_controller.perform_caching && app.config.action_dispatch.rack_cache

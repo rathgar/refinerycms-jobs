@@ -13,10 +13,6 @@ module Refinery
         def find_page
           @page = Refinery::Page.friendly.find_by(:link_url => '/jobs')
         end
-
-        def find_all_job_applications
-          @jobs = Refinery::Jobs::Job.friendly.order("position ASC")
-        end
     end
   end
 end

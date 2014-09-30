@@ -1,44 +1,32 @@
 fr:
   refinery:
-    admin:
-      dashboard:
-        recent_job_applications:
-          latest_job_applications: Dernières demandes d'emploi
     plugins:
       refinery_jobs:
         title: Offres d'emploi
-        description: Fournit une section simple d'offres d'emploi
     jobs:
       admin:
         jobs:
-          view_live_html: Voir cette offre <br/><em>(ouvre une nouvelle fenêtre)</em>
-          edit: Éditer cette offre d'emploi
-          delete: Supprimer cette offre d'emploi
-          published: Publiée
-        index:
-          actions: Actions
-          create: Ajouter une offre d'emploi
-          news_item: Offre d'emploi
-          no_items: Désolé. Aucun résultat trouvé.
-          no_items_yet: Il n'y a pas d'offre d'emploi. Cliquez sur "Ajouter une offre d'emploi" pour ajouter votre première offre d'emploi.
-
+          actions:
+            create_new: Créer une nouvelle offre d'emploi
+            reorder: Réordonner les offres d'emploi
+            reorder_done: Fin de réordonnancement des offres d'emploi
+          records:
+            title: Offre d'emploi
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: Il n'y a actuellement aucune offre d'emploi. Cliquer sur "Créer une nouvelle offre d'emploi" pour créer votre première Créer une nouvelle offre d'emploi.
+          job:
+            view_live_html: Voir cette offre d'emploi <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            view_applications_for_this_job: Voir les candidatures pour cette offre d'emploi
+            edit: Modifier cette offre d'emploi
+            delete: Supprimer définitivement cette offre d'emploi
+            draft: brouillon
       jobs:
         show:
-          back_to_index: Retourner à toutes les offres d'emploi
-          published: Publiée
-        recent_posts:
-          recent_posts: Récents ajouts
-        index:
-          published: Publiée
-          read_more: Lire la suite
-          no_items_yet: Il n'y a pas d'offres d'emploi.
-          current_open_positions: Postes ouverts
-          no_open_positions: Il n'y a pas de postes ouverts pour le moment.
+          other: Autres offres d'emploi
   activerecord:
     attributes:
-      job:
-        title: Titre du poste
+      'refinery/jobs/job':
+        title: Titre
         description: Description
-        publish_date: Date de publication
-    models:
-      job: Offre d'emploi
+        image: Image
+        draft: Enregistrer comme un brouillon

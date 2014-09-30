@@ -1,7 +1,15 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job) -%>">
   <span class='title'>
-    <%=h truncate(job.title, :length => 70)  %>
+    <%= job.title.presence || job.translations.detect {|t| t.title.present?}.title %>
     <span class="preview">
+      <% job.translations.each do |translation| %>
+        <% if translation.title.present? %>
+          <%= link_to refinery_icon_tag("flags/#{translation.locale}.png", :size => '16x11'),
+              refinery.edit_jobs_admin_job_path(job, :switch_locale => translation.locale),
+              :class => 'locale' %>
+          <% end %>
+      <% end %>
+
       <% if job.draft? %>
         <span class="label notice"><%= t('refinery.jobs.admin.jobs.job.draft') %></span>
       <% else %>

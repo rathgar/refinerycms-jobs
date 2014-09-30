@@ -3,7 +3,7 @@ module Refinery
     module ControllerHelper
       protected
         def find_all_jobs
-          @jobs = Refinery::Jobs::Job.friendly.order("position ASC")
+          @jobs = Refinery::Jobs::Job.friendly.order("position ASC").page(params[:page])
         end
 
         def find_job

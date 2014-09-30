@@ -3,19 +3,18 @@ module Refinery
     class JobApplicationsController < ::ApplicationController
       include ControllerHelper
 
-      before_filter :find_all_job_applications
       before_filter :find_page
+      before_filter :find_job, :only => [:new]
 
       def new
         @job_application = Refinery::Jobs::JobApplication.new
-        @job             = Refinery::Jobs::Job.friendly.find(params[:job_id])
 
         present(@page)
       end
 
       def create
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
-        @job_id_integer  = Refinery::Jobs::Job.friendly.find(params[:job_id])
+        @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(params[:job_id])
 
         @job_application.job_id = @job_id_integer.id
         @job                    = @job_application.job

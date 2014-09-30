@@ -7,11 +7,7 @@ module Refinery
 
       dragonfly_accessor :resume, :app => :refinery_jobs
 
-      # HUMANIZED_COLUMNS = {:resume_file_name => "Resume"}
-
       belongs_to :job, :class_name => "Refinery::Jobs::Job", :foreign_key => "job_id"
-
-      # resume_accessor :resume
 
       validates_presence_of :name, :phone, :email, :cover_letter
       validates :email, format: {
@@ -20,15 +16,9 @@ module Refinery
       validates             :resume, :presence => true
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 
-      # def self.human_attribute_name(attribute, options={})
-      #   HUMANIZED_COLUMNS[attribute.to_sym] || super
-      # end
-
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
       end
     end
   end
 end
-
-

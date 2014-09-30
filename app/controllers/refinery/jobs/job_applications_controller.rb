@@ -22,7 +22,7 @@ module Refinery
 
         respond_to do |format|
           if @job_application.save
-            flash[:notice] = 'Job application was successfully created.'
+            flash[:notice] = t('created', :scope => 'refinery.jobs.job_application.create')
             begin
               Refinery::Jobs::JobMailer.notification(@job_application, request).deliver
             rescue

@@ -20,7 +20,7 @@ module Refinery
         @job                    = @job_application.job
 
         if @job_application.save
-          if @job_application.ham? || JobApplications.send_notifications_for_job_application_marked_as_spam
+          if @job_application.ham? || Refinery::Jobs.send_notifications_for_job_applications_marked_as_spam
             begin
               JobMailer.notification(@job_application, request).deliver
             rescue

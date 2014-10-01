@@ -13,7 +13,25 @@ module Refinery
 
         private
           def job_params
-            params.require(:job).permit(:title, :description, :employment_terms, :hours, :position, :draft, :published_at)
+            params.require(:job).permit(
+              :title,
+              :description,
+              :employment_terms,
+              :hours,
+              :position,
+              :draft,
+              :published_at,
+              :fill,
+              :ref,
+              :education,
+              :experience,
+              :skills,
+              :languages,
+              :salary,
+              :length,
+              :employment_date,
+              :contact
+            )
           end
 
         protected

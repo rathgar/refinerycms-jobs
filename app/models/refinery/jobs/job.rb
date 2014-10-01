@@ -4,7 +4,7 @@ module Refinery
       extend FriendlyId
       self.table_name = 'refinery_jobs'
 
-      translates :title, :description, :slug
+      translates :title, :description, :slug, :education, :experience, :skills, :languages, :salary, :length, :contact
 
       friendly_id :friendly_id_source, :use => [:slugged, :globalize]
 

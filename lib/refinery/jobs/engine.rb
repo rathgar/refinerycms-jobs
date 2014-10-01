@@ -13,11 +13,6 @@ module Refinery
         ::Refinery::Jobs::Dragonfly.attach!(app)
       end
 
-      # initializer 'attach-jobs-resumes-via-refinery-resources-with-dragonfly', :after => 'attach-refinery-resources-with-dragonfly' do |app|
-      #   ::Refinery::Jobs::Dragonfly.configure!
-      #   ::Refinery::Jobs::Dragonfly.attach!(app)
-      # end
-
       initializer "register refinery_jobs plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root

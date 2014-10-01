@@ -9,14 +9,8 @@
 <%=raw t('.phone') %>: <%= @job_application.phone %>
 <%=raw t('.cover_letter') %>:
 <%=raw strip_tags(@job_application.cover_letter) %>
-<%=raw t('.message') %>:
-<%=raw strip_tags(@job_application.cover_letter) %>
 <%=raw t('.resume') %>:
 <%= raw @job_application.resume.url(:host => @host) %>
-
-<br/>
-<%=raw t('.manage_all_') %>: <%= raw refinery.jobs_admin_jobs_url %>
-<br/>
 
 <%=raw t('.job_application_ends') %>
 

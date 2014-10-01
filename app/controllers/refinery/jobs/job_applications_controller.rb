@@ -20,15 +20,14 @@ module Refinery
         @job                    = @job_application.job
 
         if @job_application.save
-          if @job_application.ham?
-            #|| JobApplications.send_notifications_for_inquiries_marked_as_spam
+          if @job_application.ham? || JobApplications.send_notifications_for_job_application_marked_as_spam
             begin
               JobMailer.notification(@job_application, request).deliver
             rescue
               logger.warn "There was an error delivering on job application notification.\n#{$!}\n"
             end
 
-            if Setting.send_confirmation?
+            if Refinery::Jobs::Setting.send_confirmation?
               begin
                 JobMailer.confirmation(@job_application, request).deliver
               rescue

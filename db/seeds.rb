@@ -20,3 +20,7 @@ if defined?(Refinery::Page) and !Refinery::Page.exists?(:link_url => url)
     page.parts.create(:title => default_page_part, :body => nil, :position => index)
   end
 end
+
+(Refinery::Jobs::Setting.methods.sort - Refinery::Setting.methods).each do |setting|
+  Refinery::Jobs::Setting.send(setting) if setting.to_s !~ /=\z/
+end

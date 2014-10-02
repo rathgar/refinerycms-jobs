@@ -15,10 +15,10 @@ When job applications come in, you and the candidate are generally notified. As 
 This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  
 To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
 
-[Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
-Paperclip has been removed in favor of using Refinery Resources dragonfly app
-Refinery-Resources
-Refinery-Settings
+* [Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
+* Paperclip has been removed in favor of using Refinery Resources dragonfly app
+* Refinery-Resources
+* Refinery-Settings
 
 ## Install
 

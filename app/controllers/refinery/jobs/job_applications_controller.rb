@@ -16,29 +16,33 @@ module Refinery
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
         @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(params[:job_id])
 
-        @job_application.job_id = @job_id_integer.id
-        @job                    = @job_application.job
+        if !@job_id_integer.nil?
+          @job_application.job_id = @job_id_integer.id
+          @job                    = @job_application.job
 
-        if @job_application.save
-          if @job_application.ham? || Refinery::Jobs.send_notifications_for_job_applications_marked_as_spam
-            begin
-              JobMailer.notification(@job_application, request).deliver
-            rescue
-              logger.warn "There was an error delivering on job application notification.\n#{$!}\n"
-            end
-
-            if Refinery::Jobs::Setting.send_confirmation?
+          if @job_application.save
+            if @job_application.ham? || Refinery::Jobs.send_notifications_for_job_applications_marked_as_spam
               begin
-                JobMailer.confirmation(@job_application, request).deliver
+                JobMailer.notification(@job_application, request).deliver
               rescue
-                logger.warn "There was an error delivering on job application confirmation:\n#{$!}\n"
+                logger.warn "There was an error delivering on job application notification.\n#{$!}\n"
+              end
+
+              if Refinery::Jobs::Setting.send_confirmation?
+                begin
+                  JobMailer.confirmation(@job_application, request).deliver
+                rescue
+                  logger.warn "There was an error delivering on job application confirmation:\n#{$!}\n"
+                end
               end
             end
-          end
 
-          redirect_to refinery.jobs_job_job_application_url(@job, @job_application)
+            redirect_to refinery.jobs_job_job_application_url(@job, @job_application)
+          else
+            render :action => 'new'
+          end
         else
-          render :action => 'new'
+          error_404
         end
       end
 

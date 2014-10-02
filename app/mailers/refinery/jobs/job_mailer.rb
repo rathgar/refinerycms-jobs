@@ -12,6 +12,7 @@ module Refinery
 
       def notification(job_application, request)
         @job_application, @request = job_application, request
+        @host                      = [request.protocol, request.host_with_port].join
         mail :subject   => Refinery::Jobs::Setting.notification_subject,
              :to        => Refinery::Jobs::Setting.notification_recipients,
              :from      => from_info,

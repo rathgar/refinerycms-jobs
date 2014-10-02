@@ -2,9 +2,18 @@
 
 Jobs engine for [Refinery CMS](http://refinerycms.com) allows you to post vacancies to the jobs section of your website.
 
-This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
+### In summary you can:
+* Manage jobs
+* Collect job applications
+* Customise an auto responder email that is sent to the person making the job application
+* Specify who is notified when a new job application comes in
+
+When job applications come in, you and the candidate are generally notified. As we implemented spam filtering through the `filters_spam` plugin you will not get notified if an inquiry is marked as 'spam' (can be disable by config in jobs initializer).
 
 ## Requirements
+
+This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  
+To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
 
 [Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
 Paperclip has been removed in favor of using Refinery Resources dragonfly app

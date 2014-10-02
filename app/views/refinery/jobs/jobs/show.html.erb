@@ -5,63 +5,63 @@
 <% content_for :body do %>
   <p>
     <% unless @job.fill.blank? %>
-      <strong><%= t :fill %></strong> : <%= @job.fill %>
+      <strong><%= t('.fill') %></strong> : <%= @job.fill %>
     <% end %>
 
     <% unless @job.ref.blank? %>
-      <br /><strong><%= t :ref %></strong> : <%= @job.ref %>
+      <br /><strong><%= t('.ref') %></strong> : <%= @job.ref %>
     <% end %>
   </p>
 
-  <h2><%= t :description %></h2>
+  <h2><%= t('.description')%></h2>
   <%= @job.description.html_safe %>
 
-  <h2><%= t :requirements_and_work_conditions %></h2>
+  <h2><%= t('.requirements_and_work_conditions') %></h2>
   <p>
     <% unless @job.education.blank? %>
-      <strong><%= t :education %></strong> : <%= @job.education %>
+      <strong><%= t('.education') %></strong> : <%= @job.education %>
     <% end %>
 
     <% unless @job.experience.blank? %>
-      <br /><strong><%= t :experience %></strong> : <%= @job.experience %>
+      <br /><strong><%= t('.experience') %></strong> : <%= @job.experience %>
     <% end %>
 
     <% unless @job.skills.blank? %>
-      <br /><strong><%= t :skills %></strong> : <%= @job.skills %>
+      <br /><strong><%= t('.skills') %></strong> : <%= @job.skills %>
     <% end %>
 
     <% unless @job.languages.blank? %>
-      <br /><strong><%= t :languages %></strong> : <%= @job.languages %>
+      <br /><strong><%= t('.languages') %></strong> : <%= @job.languages %>
     <% end %>
 
     <% unless @job.salary.blank? %>
-      <br /><strong><%= t :salary %></strong> : <%= @job.salary %>
+      <br /><strong><%= t('.salary') %></strong> : <%= @job.salary %>
     <% end %>
 
     <% unless @job.hours.blank? %>
-      <br /><strong><%= t :hours %></strong> : <%= @job.hours %>
+      <br /><strong><%= t('.hours') %></strong> : <%= @job.hours %>
     <% end %>
 
     <% unless @job.employment_terms.blank? %>
-      <br /><strong><%= t :employment_terms %></strong> : <%= @job.employment_terms %>
+      <br /><strong><%= t('.employment_terms') %></strong> : <%= @job.employment_terms %>
     <% end %>
 
     <% unless @job.length.blank? %>
-      <br /><strong><%= t :length %></strong> : <%= @job.length %>
+      <br /><strong><%= t('.length') %></strong> : <%= @job.length %>
     <% end %>
 
     <% unless @job.employment_date.blank? %>
-      <br /><strong><%= t :employment_date %></strong> : <%= @job.employment_date %>
+      <br /><strong><%= t('.employment_date') %></strong> : <%= @job.employment_date %>
     <% end %>
 
     <% unless @job.employment_terms.blank? %>
-      <br /><strong><%= t :contact %></strong> : <%= @job.contact %>
+      <br /><strong><%= t('.contact') %></strong> : <%= @job.contact %>
     <% end %>
   </p>
 
   <%= render :partial => "/refinery/jobs/job_applications/form" %>
 
-  <p><%= link_to t(:back_to_list), refinery.jobs_jobs_path %></p>
+  <p><%= link_to t('.back_to_list'), refinery.jobs_jobs_path %></p>
 <% end %>
 
 <%= render :partial => "/refinery/content_page" %>

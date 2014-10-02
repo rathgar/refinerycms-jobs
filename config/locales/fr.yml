@@ -4,6 +4,8 @@ fr:
       refinery_jobs:
         title: Offres d'emploi
     jobs:
+      config:
+        from_name: "%{name} [%{site_name}]"
       admin:
         jobs:
           actions:
@@ -20,13 +22,79 @@ fr:
             edit: Modifier cette offre d'emploi
             delete: Supprimer définitivement cette offre d'emploi
             draft: brouillon
+          job_application:
+            created_at: Créée le
+            name: Nom
+            email: Courriel
+            phone: Téléphone
+            cover_letter: Lettre de présentation
+            download_resume: "Téléchargez le Curriculum Vitae de %{name}"
+          job_applications:
+            job_applications_for_position: 'Candidatures pour le poste de "%{job_title}"'
+            back_to_jobs: Revenir à la liste des offres d'emploi
       jobs:
         show:
-          other: Autres offres d'emploi
+          fill: Nombre de postes à combler
+          ref: Numéro de l'offre
+          description: Description
+          requirements_and_work_conditions: Exigences et conditions de travail
+          education: Niveau d'études
+          experience: Années d'expérience reliées à l'emploi
+          skills: Description des compétences
+          languages: Langues demandées
+          salary: Salaire offert
+          hours: Nombre d'heures par semaine
+          employment_terms: Statut d'emploi
+          length: Durée de l'emploi
+          employment_date: Date prévue d'entrée en fonction
+          contact: Nom de la personne à contacter
+          back_to_list: Revenir à la liste des offres d'emploi
+        index:
+          no_open_positions: Il n'y a pas de postes ouverts pour le moment.
+          current_open_positions: Postes ouverts
+      job_applications:
+        form:
+          job_application_for_position: Postulez en ligne
+          apply: Postuler
+        show:
+          job_application_successfully_submitted: 'Votre candidature pour le poste de <strong>"%{job_title}"</strong> a été soumise avec succès. <br>Vous allez recevoir un courriel de confirmation.<br><br>Merci.'
+          back_to_list: Revenir à la liste des offres d'emploi
+      job_mailer:
+        notification:
+          greeting: Bonjour
+          you_recieved_new_job_application: Vous avez reçu une nouvelle candidature sur votre site.
+          job_application_starts: --- Début de la candidature ---
+          job_application_ends: --- Fin de la candidature ---
+          from: De
+          email: Courriel
+          phone: Téléphone
+          cover_letter: Lettre de présentation
+          resume: Curriculum Vitae
+          closing_line: Cordialement
+          ps: P.S. Toutes les candidatures sont stockées dans la section 'Offres d'emploi' afin que vous puissiez les consulter ultérieurement.
   activerecord:
     attributes:
       'refinery/jobs/job':
         title: Titre
+        fill: Nombre de postes à combler
+        ref: Numéro de l'offre
         description: Description
-        image: Image
+        requirements_and_work_conditions: Exigences et conditions de travail
+        education: Niveau d'études
+        experience: Années d'expérience reliées à l'emploi
+        skills: Description des compétences
+        languages: Langues demandées
+        salary: Salaire offert
+        hours: Nombre d'heures par semaine
+        employment_terms: Statut d'emploi
+        length: Durée de l'emploi
+        employment_date: Date prévue d'entrée en fonction
+        contact: Nom de la personne à contacter
+        published_at: Publié le
         draft: Enregistrer comme un brouillon
+      'refinery/jobs/job_application':
+        name: Nom
+        email: Courriel
+        phone: Téléphone
+        cover_letter: Lettre de présentation
+        resume: Curriculum Vitae

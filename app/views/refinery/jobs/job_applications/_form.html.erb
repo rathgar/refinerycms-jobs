@@ -2,7 +2,7 @@
 
   <%= render '/refinery/admin/error_messages', {:object => @job_application, :include_object_name => true} %>
 
-  <h2><%= t('.job_application_for_position', :job_title => @job.title) %></h2>
+  <h2><%= t('.job_application_for_position') %></h2>
 
   <div class='field'>
     <%= f.label :name %>
@@ -29,5 +29,5 @@
     <%= f.file_field :resume %>
   </div>
 
-  <%= f.submit t(:apply) %>
+  <%= f.submit t('.apply') %>
 <% end %>

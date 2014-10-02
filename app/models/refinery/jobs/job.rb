@@ -15,6 +15,8 @@ module Refinery
       validates_presence_of   :title, :description
       validates_uniqueness_of :title
 
+      scope :published, -> { where :draft => false }
+
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
       end
@@ -30,7 +32,6 @@ module Refinery
       end
 
       class << self
-
         # Wrap up the logic of finding the pages based on the translations table.
         def with_globalize(conditions = {})
           conditions = {:locale => ::Globalize.locale}.merge(conditions)

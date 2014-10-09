@@ -1,7 +1,7 @@
 Refinery::Core::Engine.routes.draw do
-
-  namespace :jobs, :path => '' do
-    resources :jobs, :only => [:show, :index] do
+  namespace :jobs, :path => Refinery::Jobs.page_url do
+    root :to => "jobs#index"
+    resources :jobs, :path => '', :only => [:index, :show] do
       resources :job_applications
     end
   end

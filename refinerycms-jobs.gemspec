@@ -4,12 +4,12 @@ $:.push File.expand_path('../lib', __FILE__)
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-jobs}
-  s.version           = '2.0.0'
+  s.version           = '3.0.0'
   s.summary           = %q{Ruby on Rails jobs engine for Refinery CMS.}
   s.description       = %q{Open source Ruby on Rails jobs engine designed for integration with Refinery CMS.}
   s.email             = %q{}
-  s.homepage          = %q{https://github.com/flatterline/refinerycms-jobs}
-  s.authors           = ['Flatterline']
+  s.homepage          = %q{https://github.com/bisscomm/refinerycms-jobs}
+  s.authors           = ['Flatterline', 'Brice Sanchez']
   s.license           = %q{MIT}
   s.require_paths     = %w(lib)
 

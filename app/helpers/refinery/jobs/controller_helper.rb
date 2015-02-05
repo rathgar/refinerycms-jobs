@@ -11,7 +11,7 @@ module Refinery
         end
 
         def find_page
-          @page = Refinery::Page.friendly.find_by(:link_url => Refinery::Teams.page_url)
+          @page = Refinery::Page.friendly.find_by(:link_url => Refinery::Jobs.page_url)
         end
     end
   end

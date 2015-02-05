@@ -1,5 +1,3 @@
-require 'dragonfly'
-
 module Refinery
   module Jobs
     module Dragonfly

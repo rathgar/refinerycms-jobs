@@ -1,6 +1,7 @@
 require 'refinerycms-core'
 require 'refinerycms-settings'
 require 'dragonfly'
+require 'filters_spam'
 
 module Refinery
   autoload :JobsGenerator, 'generators/refinery/jobs/jobs_generator'

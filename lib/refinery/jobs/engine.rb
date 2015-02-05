@@ -23,7 +23,7 @@ module Refinery
       end
 
       config.after_initialize do
-        Refinery.register_extension(Refinery::Resources)
+        Refinery.register_extension(Refinery::Jobs)
       end
     end
   end

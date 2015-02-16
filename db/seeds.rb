@@ -7,8 +7,7 @@ if defined?(Refinery::User)
   end
 end
 
-url = '/jobs'
-if defined?(Refinery::Page) and !Refinery::Page.exists?(:link_url => url)
+if defined?(Refinery::Page) and !Refinery::Page.exists?(:link_url => (url = Refinery::Jobs.page_url))
   page = Refinery::Page.create(
     :title => "Jobs",
     :link_url => url,

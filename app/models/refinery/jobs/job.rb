@@ -16,6 +16,8 @@ module Refinery
       validates_uniqueness_of :title
 
       scope :published, -> { where :draft => false }
+      
+      default_scope { order(published_at: :desc) }
 
       def self.latest(number = 5)
         limit(number).order('created_at DESC')

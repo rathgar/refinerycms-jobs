@@ -1,35 +1,38 @@
 <%= form_for [refinery, :jobs, @job, @job_application], :html => { :multipart => true } do |f| %>
 
+  <h2><%= t('.job_application_for_position', job_title: @job.title) %></h2>
+
   <%= render '/refinery/admin/error_messages', {:object => @job_application, :include_object_name => true} %>
 
-  <h2><%= t('.job_application_for_position') %></h2>
-
   <div class='field'>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.required_label :name %>
+    <%= f.text_field :name, :class => 'text', :required => 'required' %>
   </div>
 
   <div class='field'>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.required_label :email %>
+    <%= f.email_field :email, :class => 'text', :required => 'required' %>
   </div>
 
   <div class='field'>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
+    <%= f.required_label :phone %>
+    <%= f.telephone_field :phone, :class => 'text', :required => 'required' %>
   </div>
 
   <div class='field'>
-    <%= f.label :cover_letter %>
-    <%= f.text_area :cover_letter %>
+    <%= f.required_label :cover_letter %>
+    <%= f.text_area :cover_letter, :class => 'text', :required => 'required' %>
   </div>
 
-  <div class='field'>
-    <%= f.label :resume %>
-    <%= f.file_field :resume %>
+  <div class='field message_field'>
+    <%= f.required_label :resume %>
+    <%= f.file_field :resume, :class => 'text', :required => 'required' %>
   </div>
 
   <div class="actions">
+    <p class="instruction">
+      <%= t('.mandatory_fields').html_safe %>
+    </p>
     <%= f.submit t('.apply') %>
   </div>
 <% end %>

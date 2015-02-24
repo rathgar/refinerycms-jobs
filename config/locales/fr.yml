@@ -56,7 +56,7 @@ fr:
         form:
           job_application_for_position: Postulez en ligne en tant que %{job_title}
           apply: Postuler
-          mandatory_fields: <sup>*<sub> champs obligatoires.
+          mandatory_fields: <sup>*</sub> champs obligatoires.
         show:
           job_application_successfully_submitted: 'Votre candidature pour le poste de <strong>"%{job_title}"</strong> a été soumise avec succès. <br>Vous allez recevoir un courriel de confirmation.<br><br>Merci.'
           back_to_list: Revenir à la liste des offres d'emploi

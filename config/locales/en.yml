@@ -56,7 +56,7 @@ en:
         form:
           job_application_for_position: Apply Online as %{job_title}
           apply: Apply
-          mandatory_fields: <sup>*<sub> fields are required.
+          mandatory_fields: <sup>*</sub> fields are required.
         show:
           job_application_successfully_submitted: 'Your job application for the <strong>"%{job_title}"</strong> position was successfully submitted. <br>You will receive a confirmation email.<br><br>Thank you.'
           back_to_list: Back to jobs list

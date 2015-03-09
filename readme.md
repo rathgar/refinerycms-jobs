@@ -12,7 +12,7 @@ When job applications come in, you and the candidate are generally notified. As 
 
 ## Requirements
 
-This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.  
+This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1.x.
 To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
 
 * [Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
@@ -25,7 +25,7 @@ To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 st
 Open up your ``Gemfile`` and add at the bottom this line:
 
 ```ruby
-gem 'refinerycms-jobs', git: 'https://github.com/bisscomm/refinerycms-jobs', branch: 'master'
+gem 'refinerycms-jobs', github: 'bisscomm/refinerycms-jobs', branch: 'master'
 ```
 
 Now, run ``bundle install``

@@ -34,7 +34,7 @@ en:
             back_to_jobs: Back to jobs
       jobs:
         show:
-          fill: Number of vacancies
+          fill: Number of positions to fill
           ref: Reference number
           description: Description
           requirements_and_work_conditions: Requirements and work conditions

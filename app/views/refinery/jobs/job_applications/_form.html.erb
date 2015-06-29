@@ -19,6 +19,17 @@
     <%= f.telephone_field :phone, :class => 'text', :required => 'required' %>
   </div>
 
+  <% if @jobs %>
+    <div class='field'>
+      <%= f.label :job_id %>
+      <%= f.select :job_id  do %>
+        <% @jobs.each do |j| -%>
+          <%= content_tag(:option, j.title, value: j.id) %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class='field'>
     <%= f.label :cover_letter, :class => 'required' %>
     <%= f.text_area :cover_letter, :class => 'text', :required => 'required' %>

@@ -14,7 +14,12 @@ module Refinery
 
       def create
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
-        @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(params[:job_id])
+
+        if @job_application.job_id
+          @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(job_application_params[:job_id])
+        else
+          @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(params[:job_id])
+        end
 
         if !@job_id_integer.nil?
           @job_application.job_id = @job_id_integer.id

@@ -8,10 +8,7 @@ module Refinery
       before_filter :find_all_jobs, :only => [:index]
       before_filter :find_job, :only => [:show]
 
-      def show
-        find_job
-        @job_application = Refinery::Jobs::JobApplication.new
-      end
+      before_filter :new_job_applicaton, :only => [:index, :show]
     end
   end
 end

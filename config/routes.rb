@@ -4,6 +4,7 @@ Refinery::Core::Engine.routes.draw do
     resources :jobs, :path => '', :only => [:index, :show] do
       resources :job_applications
     end
+    resources :job_applications
   end
 
   namespace :jobs, :path => '' do

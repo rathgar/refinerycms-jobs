@@ -13,11 +13,11 @@ module Refinery
         ::Refinery::Jobs::Dragonfly.attach!(app)
       end
 
-      initializer "register refinery_jobs plugin" do
+      before_inclusion do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = 'refinery_jobs'
-          plugin.menu_match = /(admin|refinery)\/(jobs|vacancies)\/jobs$/
+          plugin.menu_match = /(admin|refinery)\/(jobs|positions)\/jobs$/
           plugin.url        = proc { Refinery::Core::Engine.routes.url_helpers.jobs_admin_jobs_path }
         end
       end

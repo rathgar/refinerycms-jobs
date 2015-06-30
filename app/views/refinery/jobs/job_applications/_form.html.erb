@@ -22,11 +22,7 @@
   <% if @jobs %>
     <div class='field'>
       <%= f.label :job_id %>
-      <%= f.select :job_id  do %>
-        <% @jobs.each do |j| -%>
-          <%= content_tag(:option, j.title, value: j.id) %>
-        <% end %>
-      <% end %>
+      <%= f.select :job_id, @jobs.collect {|j| [ j.title, j.id ] }, { prompt: t('.select_a_job') }, required: true %>
     </div>
   <% end %>
 

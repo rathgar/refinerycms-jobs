@@ -1,22 +1,22 @@
-<%= form_for [refinery, :jobs, @job, @job_application], :html => { :multipart => true } do |f| %>
+<%= form_for [refinery, :jobs, @job, @job_application], html: { multipart: true } do |f| %>
 
   <h2><%= t('.job_application_for_position', job_title: @job.title) %></h2>
 
-  <%= render '/refinery/admin/error_messages', {:object => @job_application, :include_object_name => true} %>
+  <%= render '/refinery/admin/error_messages', {object: @job_application, include_object_name: true} %>
 
   <div class='field'>
-    <%= f.label :name, :class => 'required' %>
-    <%= f.text_field :name, :class => 'text', :required => 'required' %>
+    <%= f.label :name, class: 'required' %>
+    <%= f.text_field :name, class: 'text', required: 'required' %>
   </div>
 
   <div class='field'>
-    <%= f.label :email, :class => 'required' %>
-    <%= f.email_field :email, :class => 'text', :required => 'required' %>
+    <%= f.label :email, class: 'required' %>
+    <%= f.email_field :email, class: 'text', required: 'required' %>
   </div>
 
   <div class='field'>
-    <%= f.label :phone, :class => 'required' %>
-    <%= f.telephone_field :phone, :class => 'text', :required => 'required' %>
+    <%= f.label :phone, class: 'required' %>
+    <%= f.telephone_field :phone, class: 'text', required: 'required' %>
   </div>
 
   <% if @jobs %>
@@ -27,13 +27,13 @@
   <% end %>
 
   <div class='field'>
-    <%= f.label :cover_letter, :class => 'required' %>
-    <%= f.text_area :cover_letter, :class => 'text', :required => 'required' %>
+    <%= f.label :cover_letter, class: 'required' %>
+    <%= f.text_area :cover_letter, class: 'text', required: 'required' %>
   </div>
 
   <div class='field message_field'>
-    <%= f.label :resume, :class => 'required' %>
-    <%= f.file_field :resume, :class => 'text', :required => 'required' %>
+    <%= f.label :resume, class: 'required' %>
+    <%= f.file_field :resume, class: 'text', required: 'required' %>
   </div>
 
   <div class="actions">

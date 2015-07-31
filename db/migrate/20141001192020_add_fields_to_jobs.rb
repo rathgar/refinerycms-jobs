@@ -1,15 +1,8 @@
 class AddFieldsToJobs < ActiveRecord::Migration
   def up
-    add_column Refinery::Jobs::Job.table_name, :fill, :integer, default: 1
-    add_column Refinery::Jobs::Job.table_name, :ref, :string
-    add_column Refinery::Jobs::Job.table_name, :education, :string
-    add_column Refinery::Jobs::Job.table_name, :experience, :string
-    add_column Refinery::Jobs::Job.table_name, :skills, :string
-    add_column Refinery::Jobs::Job.table_name, :languages, :string
-    add_column Refinery::Jobs::Job.table_name, :salary, :string
-    add_column Refinery::Jobs::Job.table_name, :length, :string
-    add_column Refinery::Jobs::Job.table_name, :employment_date, :date
-    add_column Refinery::Jobs::Job.table_name, :contact, :string
+    add_column :refinery_jobs, :fill, :integer, default: 1
+    add_column :refinery_jobs, :ref, :string
+    add_column :refinery_jobs, :employment_date, :date
 
     Refinery::Jobs::Job.add_translation_fields! education: :string
     Refinery::Jobs::Job.add_translation_fields! experience: :string
@@ -21,12 +14,16 @@ class AddFieldsToJobs < ActiveRecord::Migration
   end
 
   def down
-    remove_column :job_translations, :education
-    remove_column :job_translations, :experience
-    remove_column :job_translations, :skills
-    remove_column :job_translations, :languages
-    remove_column :job_translations, :salary
-    remove_column :job_translations, :length
-    remove_column :job_translations, :contact
+    remove_column :refinery_jobs, :fill
+    remove_column :refinery_jobs, :ref
+    remove_column :refinery_jobs, :employment_date
+
+    remove_column :refinery_job_translations, :education
+    remove_column :refinery_job_translations, :experience
+    remove_column :refinery_job_translations, :skills
+    remove_column :refinery_job_translations, :languages
+    remove_column :refinery_job_translations, :salary
+    remove_column :refinery_job_translations, :length
+    remove_column :refinery_job_translations, :contact
   end
 end

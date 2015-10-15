@@ -50,7 +50,7 @@ fr:
           contact: Nom de la personne à contacter
           back_to_list: Revenir à la liste des offres d'emploi
         index:
-          no_open_positions: Il n'y a pas de postes ouverts pour le moment.
+          no_open_positions: Il n'y a pas de poste ouvert pour le moment.
           current_open_positions: Postes ouverts
       job_applications:
         form:

@@ -1,3 +1,5 @@
+require 'acts_as_indexed'
+
 module Refinery
   module Jobs
     class Job < ActiveRecord::Base
@@ -14,6 +16,9 @@ module Refinery
 
       validates_presence_of   :title, :description
       validates_uniqueness_of :title
+
+      validates_length_of :title, :employment_terms, :ref, :education, :experience,
+        :skills, :languages, :salary, :hours, :employment_terms, :length, :contact, maximum: 255
 
       scope :published, -> { where :draft => false }
 

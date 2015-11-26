@@ -1,10 +1,10 @@
 Refinery::Core::Engine.routes.draw do
   namespace :jobs, :path => Refinery::Jobs.page_url do
     root :to => "jobs#index"
-    resources :jobs, :path => '', :only => [:index, :show] do
-      resources :job_applications
+
+    resources :jobs, :path => '', only: [:index, :show] do
+      resources :job_applications, only: [:new, :create, :show]
     end
-    resources :job_applications
   end
 
   namespace :jobs, :path => '' do
@@ -13,9 +13,7 @@ Refinery::Core::Engine.routes.draw do
         collection do
           post :update_positions
         end
-        member do
-          get :job_applications
-        end
+        resources :job_applications
       end
     end
   end

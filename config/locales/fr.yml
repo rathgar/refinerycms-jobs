@@ -22,6 +22,10 @@ fr:
             edit: Modifier cette offre d'emploi
             delete: Supprimer définitivement cette offre d'emploi
             draft: brouillon
+        job_applications:
+          job_applications:
+            job_applications_for_position: 'Candidatures pour le poste de "%{job_title}"'
+            back_to_jobs: Revenir à la liste des offres d'emploi
           job_application:
             created_at: Créée le
             name: Nom
@@ -29,9 +33,6 @@ fr:
             phone: Téléphone
             cover_letter: Lettre de présentation
             download_resume: "Téléchargez le Curriculum Vitae de %{name}"
-          job_applications:
-            job_applications_for_position: 'Candidatures pour le poste de "%{job_title}"'
-            back_to_jobs: Revenir à la liste des offres d'emploi
       jobs:
         show:
           fill: Nombre de postes à combler

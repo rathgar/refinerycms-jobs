@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'refinerycms-core', '~> 3.0.0'
   s.add_dependency 'refinerycms-settings', '~> 3.0.0'
   s.add_dependency 'globalize', ['>= 4.0.0', '< 5.2']
+  s.add_dependency 'friendly_id-globalize'
   s.add_dependency 'dragonfly', '~> 1.0.7'
   s.add_dependency 'filters_spam', '~> 0.2'
   s.add_dependency 'acts_as_indexed', '~> 0.8.0'

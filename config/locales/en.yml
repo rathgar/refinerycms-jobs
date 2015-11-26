@@ -22,6 +22,10 @@ en:
             edit: Edit this job
             delete: Delete this job
             draft: draft
+        job_applications:
+          index:
+            job_applications_for_position: 'Job applications for position "%{job_title}"'
+            back_to_jobs: Back to jobs
           job_application:
             created_at: Created at
             name: Name
@@ -29,9 +33,6 @@ en:
             phone: Phone
             cover_letter: Cover letter
             download_resume: "Download %{name}'s resume"
-          job_applications:
-            job_applications_for_position: 'Job applications for position "%{job_title}"'
-            back_to_jobs: Back to jobs
       jobs:
         show:
           fill: Number of positions to fill

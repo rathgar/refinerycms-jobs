@@ -8,7 +8,7 @@ module Refinery
 
       translates :title, :description, :slug, :education, :experience, :skills, :languages, :salary, :length, :contact
 
-      friendly_id :friendly_id_source, :use => [:slugged, :globalize]
+      friendly_id :friendly_id_source, :use => [:slugged, :finders, :globalize]
 
       acts_as_indexed :fields => [:title, :description, :employment_terms, :hours]
 

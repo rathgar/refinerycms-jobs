@@ -1,43 +1,25 @@
 module Refinery
   module Jobs
     module Admin
-      class JobsController < ::Refinery::AdminController
-        crudify :'refinery/jobs/job',
-                :order => 'published_at DESC',
-                :include => [:translations]
+      class JobsController < Refinery::AdminController
+        before_action :find_job, only: [:index]
 
-        def job_applications
-          find_job
-          @job_applications = @job.job_applications.paginate :page => params[:page]
-        end
+        crudify :'refinery/jobs/job',
+                order: 'published_at DESC',
+                include: [:translations, :job_applications]
 
         private
-          def job_params
-            params.require(:job).permit(
-              :title,
-              :description,
-              :employment_terms,
-              :hours,
-              :position,
-              :draft,
-              :published_at,
-              :fill,
-              :ref,
-              :education,
-              :experience,
-              :skills,
-              :languages,
-              :salary,
-              :length,
-              :employment_date,
-              :contact
-            )
-          end
 
-        protected
-          def find_job
-            @job = Refinery::Jobs::Job.find_by_slug_or_id(params[:id])
-          end
+        def job_params
+          params.require(:job).permit permitted_job_params
+        end
+
+        def permitted_job_params
+          [
+            :title, :description, :employment_terms, :hours, :position, :draft, :published_at, :fill, 
+            :ref, :education, :experience, :skills, :languages, :salary, :length, :employment_date, :contact
+          ]
+        end
       end
     end
   end

@@ -23,6 +23,8 @@ module Refinery
       validates             :resume, :presence => true
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 
+      default_scope { order(created_at: :desc) }
+
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
       end

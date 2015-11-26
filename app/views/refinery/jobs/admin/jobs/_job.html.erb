@@ -1,5 +1,5 @@
 <% # setup params for various action links
-  open_url = refinery.job_applications_jobs_admin_job_path(job)
+  open_url = refinery.jobs_admin_job_job_applications_path(job)
   preview_url = refinery.jobs_job_url(job)
   edit_url = refinery.edit_jobs_admin_job_path(job)
   delete_url = refinery.jobs_admin_job_path(job)
@@ -33,11 +33,13 @@
           <% end %>
         </span>
       <% end %>
+
+      <%= t('.there_is_jobs_applications', count: job.job_applications.count ) %>
     </span>
   </span>
 
   <span class='actions'>
-    <% if job.job_applications.present? %>
+    <% if job.job_applications.any? %>
       <%= action_icon(:folder, open_url, t('.view_applications_for_this_job')) %>
     <% end %>
     <%= action_icon(:preview, preview_url, t('.view_live_html')) %>

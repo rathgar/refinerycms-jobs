@@ -59,14 +59,20 @@ module Refinery
 
         respond_to do |format|
           format.html { render :action => 'show' }
-          format.xml  { render :xml => @future_student }
         end
       end
 
       private
-        def job_application_params
-          params.require(:job_application).permit!
-        end
+
+      def job_application_params
+        params.require(:job_application).permit!
+      end
+
+      def permitted_job_application_params
+        [
+          :name, :email, :phone, :cover_letter, :resume
+        ]
+      end
     end
   end
 end

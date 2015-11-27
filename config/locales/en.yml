@@ -17,6 +17,10 @@ en:
             sorry_no_results: "Sorry, no results found."
             no_items_yet: There are no jobs yet.
           job:
+            job_applications_count:
+              zero: No job application
+              one: "%{count} job application"
+              other: "%{count} job applications"
             view_live_html: View this job <br/><em>(opens in a new window)</em>
             view_applications_for_this_job: View applications for this job
             edit: Edit this job

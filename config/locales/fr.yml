@@ -23,7 +23,7 @@ fr:
             delete: Supprimer définitivement cette offre d'emploi
             draft: brouillon
         job_applications:
-          job_applications:
+          index:
             job_applications_for_position: 'Candidatures pour le poste de "%{job_title}"'
             back_to_jobs: Revenir à la liste des offres d'emploi
           job_application:

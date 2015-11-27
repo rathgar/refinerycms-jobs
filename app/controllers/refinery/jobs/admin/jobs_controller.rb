@@ -2,8 +2,6 @@ module Refinery
   module Jobs
     module Admin
       class JobsController < Refinery::AdminController
-        before_action :find_job, only: [:index]
-
         crudify :'refinery/jobs/job',
                 order: 'published_at DESC',
                 include: [:translations, :job_applications]

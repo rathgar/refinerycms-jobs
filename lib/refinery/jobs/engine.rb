@@ -17,7 +17,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = 'refinery_jobs'
-          plugin.menu_match = /(admin|refinery)\/(jobs|positions)\/jobs$/
+          plugin.menu_match = %r{refinery/jobs(/jobs(/.*)?)?(/job_applications(/.*)?)?$}
           plugin.url        = proc { Refinery::Core::Engine.routes.url_helpers.jobs_admin_jobs_path }
         end
       end

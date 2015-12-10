@@ -1,6 +1,6 @@
 # Refinery CMS Jobs
 
-[![Build Status](https://travis-ci.org/bisscomm/refinerycms-jobs.svg?branch=master)](https://travis-ci.org/refinery/refinerycms) [![Code Climate](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/gpa.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs) [![Test Coverage](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/coverage.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs/coverage)
+[![Build Status](https://travis-ci.org/bisscomm/refinerycms-jobs.svg?branch=master)](https://travis-ci.org/bisscomm/refinerycms-jobs) [![Code Climate](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/gpa.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs) [![Test Coverage](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/coverage.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs/coverage)
 
 Jobs engine for [Refinery CMS](http://refinerycms.com) allows you to post vacancies to the jobs section of your website.
 

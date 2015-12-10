@@ -1,12 +1,14 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gemspec
 
-git "https://github.com/refinery/refinerycms", branch: "master" do
+git 'https://github.com/refinery/refinerycms', branch: 'master' do
   gem "refinerycms"
 
   group :test do
-    gem "refinerycms-testing"
+    gem 'refinerycms-testing'
+    gem 'poltergeist', github: 'teampoltergeist/poltergeist', branch: 'master'
+    #gem 'database_cleaner'
   end
 end
 

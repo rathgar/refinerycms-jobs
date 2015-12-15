@@ -8,11 +8,11 @@ module Refinery
 
       translates :title, :description, :slug, :education, :experience, :skills, :languages, :salary, :length, :contact
 
-      friendly_id :friendly_id_source, :use => [:slugged, :finders, :globalize]
+      friendly_id :friendly_id_source, use:[:slugged, :finders, :globalize]
 
-      acts_as_indexed :fields => [:title, :description, :employment_terms, :hours]
+      acts_as_indexed fields: [:title, :description, :employment_terms, :hours]
 
-      has_many :job_applications, :dependent => :destroy, :foreign_key => :job_id
+      has_many :job_applications, dependent: :destroy, foreign_key: :job_id
 
       validates_presence_of   :title, :description
       validates_uniqueness_of :title
@@ -20,9 +20,7 @@ module Refinery
       validates_length_of :title, :employment_terms, :ref, :education, :experience,
         :skills, :languages, :salary, :hours, :employment_terms, :length, :contact, maximum: 255
 
-      scope :published, -> { where :draft => false }
-
-      default_scope { order(position: :asc) }
+      scope :published, -> { where(draft: false, position: :asc) }
 
       def self.latest(number = 5)
         limit(number).order('created_at DESC')

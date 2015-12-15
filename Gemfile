@@ -44,6 +44,7 @@ end
 
 group :test do
   gem "launchy"
+  gem "byebug"
 end
 
 # Load local gems according to Refinery developer preference.

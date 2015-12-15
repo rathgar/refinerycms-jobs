@@ -3,7 +3,7 @@ module Refinery
     module Admin
       class JobsController < Refinery::AdminController
         crudify :'refinery/jobs/job',
-                order: 'published_at DESC',
+                order: 'position ASC',
                 include: [:translations, :job_applications]
 
         private
@@ -14,7 +14,7 @@ module Refinery
 
         def permitted_job_params
           [
-            :title, :description, :employment_terms, :hours, :position, :draft, :published_at, :fill, 
+            :title, :description, :employment_terms, :hours, :position, :draft, :published_at, :fill,
             :ref, :education, :experience, :skills, :languages, :salary, :length, :employment_date, :contact
           ]
         end

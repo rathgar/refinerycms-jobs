@@ -6,9 +6,9 @@ module Refinery
     class JobApplication < Refinery::Core::BaseModel
       self.table_name = 'refinery_job_applications'
 
-      dragonfly_accessor :resume, :app => :refinery_jobs
+      dragonfly_accessor :resume, app: :refinery_jobs
 
-      belongs_to :job, :class_name => "Refinery::Jobs::Job", :foreign_key => "job_id"
+      belongs_to :job, class_name: 'Refinery::Jobs::Job', foreign_key: 'job_id'
 
       filters_spam message_field:    :cover_letter,
                    email_field:      :email,
@@ -20,14 +20,9 @@ module Refinery
       validates :email, format: {
         with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       }, length: { maximum: 255 }
-      validates             :resume, :presence => true
+      validates             :resume, presence: true
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 
-      default_scope { order(created_at: :desc) }
-
-      def self.latest(number = 5)
-        limit(number).order('created_at DESC')
-      end
     end
   end
 end

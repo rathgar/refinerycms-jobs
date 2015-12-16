@@ -11,7 +11,7 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  sequence :date, aliases: [:published_at] do |n|
+  sequence :date, aliases: [:created_at] do |n|
     DateTime.now + n.days
   end
 end

@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :job, class: "Refinery::Jobs::Job" do
     title
     description
-    published_at
+    created_at
   end
 end

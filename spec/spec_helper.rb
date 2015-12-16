@@ -8,12 +8,11 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'capybara/poltergeist'
+
 Capybara.javascript_driver = :poltergeist
 
-# require 'database_cleaner'
-# DatabaseCleaner.strategy = :transaction
-# DatabaseCleaner.start
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -22,9 +21,21 @@ RSpec.configure do |config|
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
-  # config.after(:it) do
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before(:each, :it) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each, :it) do
+    raise
+    DatabaseCleaner.clean
+  end
+
+
 end
 
 def each_run

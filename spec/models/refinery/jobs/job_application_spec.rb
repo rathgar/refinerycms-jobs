@@ -1,14 +1,15 @@
 require 'spec_helper'
-require 'helper/generator_helper'
+require 'support/helper/generator_helper'
 
 module Refinery
   module Jobs
     describe JobApplication, type: :model do
+      before :each do
+        @job_application = FactoryGirl.create :job_application
+        @job = FactoryGirl.create :job
+      end
 
-      let(:job_application) {FactoryGirl.create(:job_application)}
-      let(:job) {FactoryGirl.create(:job)}
-
-      describe 'validations' do
+      context 'validations' do
         it 'should be functional' do
           # Negative tests
           expect(FactoryGirl.build(:job_application, name: nil)).not_to be_valid
@@ -25,19 +26,19 @@ module Refinery
             { name: generate_string,
               email: generate_email,
               phone: '123-124-1234',
-              cover_letter: generate_string,
-              resume: "/refinerycms-jobs/spec/fixtures/refinery_is_awesome.txt"
+              cover_letter: generate_string
             })).to be_valid
         end
       end
 
-      describe 'destroy' do
+      context 'destroy' do
         it 'should be functional' do
-          job_app_id = job_application.id
-          job_application.destroy
+          job_app_id = @job_application.id
+          @job_application.update_attributes({job: @job})
+          @job_application.destroy
 
           expect(Refinery::Jobs::JobApplication.find_by_id(job_app_id)).to be_nil
-          expect(Refinery::Jobs::Job.find_by_id(job.id)).not_to be_nil
+          expect(Refinery::Jobs::Job.find_by_id(@job.id)).not_to be_nil
         end
       end
 

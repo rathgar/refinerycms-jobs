@@ -29,7 +29,7 @@ module Refinery
       context 'destroy' do
         it 'should be functional' do
           job_app_id = @job_application.id
-          @job_application.update_attributes({job: @job})
+          @job_application.update_attributes(job: @job)
           @job_application.destroy
 
           expect(Refinery::Jobs::JobApplication.find_by_id(job_app_id)).to be_nil

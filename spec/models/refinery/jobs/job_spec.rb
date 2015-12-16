@@ -18,7 +18,7 @@ module Refinery
           expect(FactoryGirl.build(:job, description: '')).not_to be_valid
 
           #Positive tests
-          expect(FactoryGirl.build(:job, {description: 1, title: 1})).to be_valid
+          expect(FactoryGirl.build(:job, description: 1, title: 1)).to be_valid
         end
       end
 

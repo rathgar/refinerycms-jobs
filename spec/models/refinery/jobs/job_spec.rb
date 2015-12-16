@@ -52,7 +52,7 @@ module Refinery
 
           jobs.reverse!
 
-          expect(jobs == Refinery::Jobs::Job.latest).to eq true
+          expect(Refinery::Jobs::Job.latest).to eq jobs
         end
       end
     end

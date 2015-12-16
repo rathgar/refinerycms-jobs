@@ -31,11 +31,8 @@ RSpec.configure do |config|
   end
 
   config.after(:each, :it) do
-    raise
     DatabaseCleaner.clean
   end
-
-
 end
 
 def each_run

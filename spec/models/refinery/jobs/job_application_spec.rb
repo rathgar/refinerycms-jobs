@@ -22,12 +22,7 @@ module Refinery
           expect(FactoryGirl.build(:job_application, resume: nil)).not_to be_valid
 
           # Positive test
-          expect(FactoryGirl.build(:job_application,
-            { name: generate_string,
-              email: generate_email,
-              phone: '123-124-1234',
-              cover_letter: generate_string
-            })).to be_valid
+          expect(FactoryGirl.build(:job_application, phone: '123-124-1234')).to be_valid
         end
       end
 

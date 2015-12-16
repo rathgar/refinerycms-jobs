@@ -4,7 +4,6 @@ require 'support/helper/generator_helper'
 module Refinery
   module Jobs
     describe Job, type: :model do
-
       before :each do
         @job_application = FactoryGirl.create :job_application
         @job = FactoryGirl.create :job
@@ -28,7 +27,7 @@ module Refinery
           gen_title = generate_string
           gen_description = generate_string
 
-          @job.update_attributes({title: gen_title, description: gen_description })
+          @job.update_attributes(title: gen_title, description: gen_description)
 
           expect(@job.title).to eq gen_title
           expect(@job.description).to eq gen_description
@@ -39,7 +38,7 @@ module Refinery
         it 'should be functional' do
           job_id = @job.id
           job_app_id = @job_application.id
-          @job_application.update_attributes({job: @job})
+          @job_application.update_attributes(job: @job)
           @job.destroy
 
           expect(Refinery::Jobs::JobApplication.find_by_id(job_app_id)).to be_nil

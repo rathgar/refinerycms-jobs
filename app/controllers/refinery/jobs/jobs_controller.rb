@@ -4,12 +4,12 @@ module Refinery
       include ControllerHelper
 
       helper :'refinery/jobs/jobs'
-      
-      before_action :find_page
-      before_action :find_all_jobs, :only => [:index]
-      before_action :find_job, :only => [:show]
 
-      before_action :new_job_applicaton, :only => [:index, :show]
+      before_action :find_page
+      before_action :find_all_jobs, only: :index
+      before_action :find_job, only: :show
+
+      before_action :new_job_applicaton, only: [:index, :show]
 
       def show
         @breadcrumb = OpenStruct.new({

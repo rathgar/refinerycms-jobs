@@ -5,5 +5,8 @@ FactoryGirl.define do
     title
     description
     created_at
+    draft false
+    position 1
+    enabled true
   end
 end

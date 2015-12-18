@@ -3,8 +3,6 @@ module Refinery
     class JobsController < ::ApplicationController
       include ControllerHelper
 
-      helper :'refinery/jobs/jobs'
-      
       before_action :find_page
       before_action :find_all_jobs, :only => [:index]
       before_action :find_job, :only => [:show]

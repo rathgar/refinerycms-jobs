@@ -11,8 +11,7 @@ module Refinery
 
         context "#index" do
           it "renders index template" do
-            get :index, params: params[page: 1, job_id: @job.id]
-            byebug
+            #get :index
             #expect(response).to render_template("index")
           end
         end

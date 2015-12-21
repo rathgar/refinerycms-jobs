@@ -4,7 +4,7 @@ module Refinery
   module Jobs
     module Admin
       describe JobApplicationsController, type: :controller do
-        before do
+        before :each do
           @job = FactoryGirl.create(:job)
           @job_application = FactoryGirl.create(:job_application, job: @job)
         end

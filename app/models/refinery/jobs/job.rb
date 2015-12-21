@@ -20,8 +20,6 @@ module Refinery
       validates_length_of :title, :employment_terms, :ref, :education, :experience,
         :skills, :languages, :salary, :hours, :employment_terms, :length, :contact, maximum: 255
 
-      scope :published, -> { where(draft: false, position: :asc) }
-
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
       end
@@ -34,6 +32,10 @@ module Refinery
 
       def friendly_id_source
         title
+      end
+
+      def live?
+        !draft && published_at <= DateTime.now
       end
 
       class << self
@@ -58,6 +60,13 @@ module Refinery
             find(slug_or_id)
           end
         end
+
+        def published_before(date=DateTime.now)
+          where(arel_table[:published_at].lt(date))
+            .where(draft: false)
+            .with_globalize
+        end
+        alias_method :live, :published_before
       end
     end
   end

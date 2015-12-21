@@ -3,27 +3,18 @@ module Refinery
     class JobApplicationsController < ::ApplicationController
 
       before_action :find_page
-      before_action :find_job, only: :new
+      before_action :find_job, only: [:new, :create, :show]
 
       def new
         @job_application = Refinery::Jobs::JobApplication.new
-
         present(@page)
       end
 
       def create
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
+        @job_application.job_id = @job.id
 
-        if @job_application.job_id
-          @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(job_application_params[:job_id])
-        else
-          @job_id_integer  = Refinery::Jobs::Job.find_by_slug_or_id(params[:job_id])
-        end
-
-        if !@job_id_integer.nil?
-          @job_application.job_id = @job_id_integer.id
-          @job                    = @job_application.job
-
+        if !@job_application.job_id.nil?
           if @job_application.save
             if @job_application.ham? || Refinery::Jobs.send_notifications_for_job_applications_marked_as_spam
               begin
@@ -41,23 +32,12 @@ module Refinery
               end
             end
 
-            redirect_to refinery.jobs_job_job_application_url(@job, @job_application)
+            redirect_to refinery.jobs_job_job_application_path(params[:job_id], @job_application)
           else
             render action: 'new'
           end
         else
           error_404
-        end
-      end
-
-      def show
-        @job_application = Refinery::Jobs::JobApplication.find(params[:id])
-        @job             = @job_application.job
-
-        present(@page)
-
-        respond_to do |format|
-          format.html { render action: 'show' }
         end
       end
 
@@ -79,7 +59,7 @@ module Refinery
 
       def permitted_job_application_params
         [
-          :name, :email, :phone, :cover_letter, :resume
+          :job_id, :name, :email, :phone, :cover_letter, :resume
         ]
       end
     end

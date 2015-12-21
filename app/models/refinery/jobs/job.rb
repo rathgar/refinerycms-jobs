@@ -33,6 +33,7 @@ module Refinery
 
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
+      end
 
       def live?
         !draft && published_at <= DateTime.now

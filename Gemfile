@@ -29,6 +29,7 @@ if !ENV["TRAVIS"] || ENV["DB"] == "postgresql"
 end
 
 gem "jruby-openssl", platform: :jruby
+gem "sprockets-rails", '2.3.3'
 
 # Refinery/rails should pull in the proper versions of these
 group :assets do

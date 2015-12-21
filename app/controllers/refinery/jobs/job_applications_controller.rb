@@ -71,11 +71,11 @@ module Refinery
         @page = Refinery::Page.friendly.find_by(link_url: Refinery::Jobs.page_url)
       end
 
-      private
-
       def job_application_params
-        params.require(:job_application).permit!
+        params.require(:job_application).permit(permitted_job_application_params)
       end
+
+      private
 
       def permitted_job_application_params
         [

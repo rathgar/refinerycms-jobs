@@ -1,7 +1,6 @@
 module Refinery
   module Jobs
     class JobApplicationsController < ::ApplicationController
-      include ControllerHelper
 
       before_action :find_page
       before_action :find_job, only: :new
@@ -60,6 +59,16 @@ module Refinery
         respond_to do |format|
           format.html { render action: 'show' }
         end
+      end
+
+      protected
+
+      def find_job
+        @job = Refinery::Jobs::Job.live.friendly.find(params[:job_id])
+      end
+
+      def find_page
+        @page = Refinery::Page.friendly.find_by(link_url: Refinery::Jobs.page_url)
       end
 
       private

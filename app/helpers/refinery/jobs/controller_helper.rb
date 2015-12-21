@@ -3,7 +3,7 @@ module Refinery
     module ControllerHelper
       protected
         def find_all_jobs
-          @jobs = Refinery::Jobs::Job.live.friendly.page(params[:page])
+          @jobs = Refinery::Jobs::Job.live.friendly.page(params[:page]).order(:position)
         end
 
         def find_job
@@ -11,7 +11,7 @@ module Refinery
         end
 
         def find_page
-          @page = Refinery::Page.friendly.find_by(:link_url => Refinery::Jobs.page_url)
+          @page = Refinery::Page.friendly.find_by(link_url: Refinery::Jobs.page_url)
         end
 
         def new_job_applicaton

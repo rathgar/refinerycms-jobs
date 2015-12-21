@@ -35,7 +35,7 @@ module Refinery
       end
 
       def live?
-        !draft && published_at <= Time.now
+        !draft && published_at <= DateTime.now
       end
 
       class << self
@@ -61,9 +61,9 @@ module Refinery
           end
         end
 
-        def published_before(date=Time.now)
+        def published_before(date=DateTime.now)
           where(arel_table[:published_at].lt(date))
-            .where(:draft => false)
+            .where(draft: false)
             .with_globalize
         end
         alias_method :live, :published_before

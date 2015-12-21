@@ -8,5 +8,6 @@ FactoryGirl.define do
     draft false
     position 1
     enabled true
+    published_at
   end
 end

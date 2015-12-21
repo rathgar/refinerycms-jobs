@@ -9,7 +9,7 @@ module Refinery
 
       describe "GET index" do
         it "render index template" do
-          allow(controller).to receive(:index).and_return(@job)
+          allow(controller).to receive(:index)
           get :index
           expect(response.status).to eq 200
           expect(response).to render_template(:index)
@@ -18,7 +18,6 @@ module Refinery
       describe "GET show" do
         it "render show template" do
           allow(controller).to receive(:show).and_return(@job)
-          byebug
           get :show, id: @job.id
           expect(response.status).to eq 200
           expect(response).to render_template(:show)

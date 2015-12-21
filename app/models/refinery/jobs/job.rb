@@ -20,6 +20,7 @@ module Refinery
       validates_length_of :title, :employment_terms, :ref, :education, :experience,
         :skills, :languages, :salary, :hours, :employment_terms, :length, :contact, maximum: 255
 
+
       # If title changes tell friendly_id to regenerate slug when
       # saving record
       def should_generate_new_friendly_id?
@@ -30,12 +31,11 @@ module Refinery
         title
       end
 
-      def self.live
-        where("draft == ? AND published_at <= ?", false, DateTime.now)
-      end
-
       def self.latest(number = 5)
         limit(number).order('created_at DESC')
+
+      def live?
+        !draft && published_at <= DateTime.now
       end
 
       class << self
@@ -61,6 +61,13 @@ module Refinery
             find(slug_or_id)
           end
         end
+
+        def published_before(date=DateTime.now)
+          where(arel_table[:published_at].lt(date))
+            .where(draft: false)
+            .with_globalize
+        end
+        alias_method :live, :published_before
       end
     end
   end

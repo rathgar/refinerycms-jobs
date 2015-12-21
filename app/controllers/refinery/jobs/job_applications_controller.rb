@@ -3,8 +3,8 @@ module Refinery
     class JobApplicationsController < ::ApplicationController
       include ControllerHelper
 
-      before_filter :find_page
-      before_filter :find_job, :only => [:new]
+      before_action :find_page
+      before_action :find_job, only: :new
 
       def new
         @job_application = Refinery::Jobs::JobApplication.new
@@ -44,7 +44,7 @@ module Refinery
 
             redirect_to refinery.jobs_job_job_application_url(@job, @job_application)
           else
-            render :action => 'new'
+            render action: 'new'
           end
         else
           error_404
@@ -58,7 +58,7 @@ module Refinery
         present(@page)
 
         respond_to do |format|
-          format.html { render :action => 'show' }
+          format.html { render action: 'show' }
         end
       end
 

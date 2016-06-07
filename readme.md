@@ -1,6 +1,6 @@
 # Refinery CMS Jobs
 
-[![Build Status](https://travis-ci.org/bisscomm/refinerycms-jobs.svg?branch=master)](https://travis-ci.org/bisscomm/refinerycms-jobs) [![Code Climate](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/gpa.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs) [![Test Coverage](https://codeclimate.com/github/bisscomm/refinerycms-jobs/badges/coverage.svg)](https://codeclimate.com/github/bisscomm/refinerycms-jobs/coverage)
+[![Build Status](https://travis-ci.org/refinerycms-contrib/refinerycms-jobs.svg?branch=master)](https://travis-ci.org/refinerycms-contrib/refinerycms-jobs) [![Code Climate](https://codeclimate.com/github/refinerycms-contrib/refinerycms-jobs/badges/gpa.svg)](https://codeclimate.com/github/refinerycms-contrib/refinerycms-jobs) [![Test Coverage](https://codeclimate.com/github/refinerycms-contrib/refinerycms-jobs/badges/coverage.svg)](https://codeclimate.com/github/refinerycms-contrib/refinerycms-jobs/coverage)
 
 Jobs engine for [Refinery CMS](http://refinerycms.com) allows you to post vacancies to the jobs section of your website.
 
@@ -15,7 +15,7 @@ When job applications come in, you and the candidate are generally notified. As 
 ## Requirements
 
 This version of `refinerycms-jobs` supports Refinery 3.x and Rails 4.1+.
-To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/bisscomm/refinerycms-jobs/tree/2-0-stable).
+To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 stable branch"](http://github.com/refinerycms-contrib/refinerycms-jobs/tree/2-0-stable).
 
 * [Refinery CMS](http://refinerycms.com) version 3.0.0 or above.
 * Paperclip has been removed in favor of using Refinery Resources dragonfly app
@@ -27,7 +27,7 @@ To use Rails 3.x / Refinery 2.0.x use the [refinerycms-jobs "Refinery CMS 2-0 st
 Open up your ``Gemfile`` and add at the bottom this line:
 
 ```ruby
-gem 'refinerycms-jobs', github: 'bisscomm/refinerycms-jobs', branch: 'master'
+gem 'refinerycms-jobs', git: 'https://github.com/refinerycms-contrib/refinerycms-jobs', branch: 'master'
 ```
 
 Now, run ``bundle install``

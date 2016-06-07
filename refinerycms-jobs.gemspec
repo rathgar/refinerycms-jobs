@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.summary           = %q{Ruby on Rails jobs engine for Refinery CMS.}
   s.description       = %q{Open source Ruby on Rails jobs engine designed for integration with Refinery CMS.}
   s.email             = %q{}
-  s.homepage          = %q{https://github.com/bisscomm/refinerycms-jobs}
-  s.authors           = ['Flatterline', 'Brice Sanchez']
+  s.homepage          = %q{https://github.com/refinerycms-contrib/refinerycms-jobs}
+  s.authors           = ['Brice Sanchez', 'Flatterline']
   s.license           = %q{MIT}
   s.require_paths     = %w(lib)
 

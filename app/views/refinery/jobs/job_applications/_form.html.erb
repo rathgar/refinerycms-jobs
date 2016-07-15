@@ -26,7 +26,7 @@
         <%= f.select :job_id, jobs.collect {|j| [ j.title, j.id ] }, { prompt: t('select_a_job') }, required: true %>
       </div>
     <% else %>
-      <%= f.hidden_field :job_id, value: job.id %>
+      <%= f.hidden_field :job_id, value: jobs.first.id %>
     <% end %>
   <% end %>
 

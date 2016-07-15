@@ -2,6 +2,8 @@ Refinery::Core::Engine.routes.draw do
   namespace :jobs, path: Refinery::Jobs.page_url do
     root to: "jobs#index"
 
+    resources :job_applications, only: [:new, :create]
+
     resources :jobs, path: '', only: [:index, :show] do
       resources :job_applications, only: [:new, :create, :show]
     end

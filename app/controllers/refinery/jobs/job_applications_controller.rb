@@ -12,7 +12,7 @@ module Refinery
 
       def create
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
-        @job_application.job_id = @job.id
+        @job_application.job_id ||= @job.id
 
         if !@job_application.job_id.nil?
           if @job_application.save
@@ -32,7 +32,7 @@ module Refinery
               end
             end
 
-            redirect_to refinery.jobs_job_job_application_path(params[:job_id], @job_application)
+            redirect_to refinery.jobs_job_job_application_path(@job, @job_application)
           else
             render action: 'new'
           end
@@ -44,7 +44,7 @@ module Refinery
       protected
 
       def find_job
-        @job = Refinery::Jobs::Job.live.friendly.find(params[:job_id])
+        @job = Refinery::Jobs::Job.live.friendly.find(params[:job_id] || params[:job_application][:job_id])
       end
 
       def find_page

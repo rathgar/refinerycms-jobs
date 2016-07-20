@@ -53,14 +53,6 @@ module Refinery
                            .readonly(false)
         end
 
-        def find_by_slug_or_id(slug_or_id)
-          if slug_or_id.friendly_id?
-            find_by_slug(slug_or_id)
-          else
-            find(slug_or_id)
-          end
-        end
-
         def published_before(date=DateTime.now)
           where(arel_table[:published_at].lt(date))
             .where(draft: false)

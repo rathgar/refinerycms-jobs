@@ -6,11 +6,13 @@ module Refinery
                 order: 'position ASC',
                 include: [:translations, :job_applications]
 
-        private
+        protected
 
         def job_params
           params.require(:job).permit permitted_job_params
         end
+
+        private
 
         def permitted_job_params
           [

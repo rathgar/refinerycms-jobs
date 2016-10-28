@@ -36,6 +36,7 @@ en:
             email: Email
             phone: Phone
             cover_letter: Cover letter
+            resume: Resume
             download_resume: "Download %{name}'s resume"
       jobs:
         show:

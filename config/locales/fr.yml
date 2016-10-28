@@ -36,6 +36,7 @@ fr:
             email: Courriel
             phone: Téléphone
             cover_letter: Lettre de présentation
+            resume: Curriculum Vitae
             download_resume: "Téléchargez le Curriculum Vitae de %{name}"
       jobs:
         show:

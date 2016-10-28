@@ -9,24 +9,33 @@
  %>
 
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job_application) -%>">
-  <span class='title'>
-    <b><%= t('.created_at')%> :</b>
-    <%= job_application.created_at.strftime('%H:%M %b %d, %Y') %><br>
+  <dl>
+    <dt><%= t('.created_at')%> :</dt>
+    <dd><%= job_application.created_at.strftime('%H:%M %b %d, %Y') %></dd>
 
-    <b><%= t('.name')%> :</b>
-    <%= job_application.name %> <span class="preview">&nbsp;</span><br>
+    <dt><%= t('.name')%> :</dt>
+    <dd><%= job_application.name %></dd>
 
-    <b><%= t('.phone')%> :</b>
-    <%= job_application.phone %> <span class="preview">&nbsp;</span><br>
+    <dt><%= t('.phone')%> :</dt>
+    <dd><%= job_application.phone %></dd>
 
-    <b><%= t('.email')%> :</b>
-    <%= job_application.email %> <span class="preview">&nbsp;</span><br>
+    <dt><%= t('.email')%> :</dt>
+    <dd><%= job_application.email %></dd>
 
-    <b><%= t('.cover_letter')%> :</b>
-    <%= job_application.cover_letter %> <span class="preview">&nbsp;</span><br>
+    <% if job_application.cover_letter %>
+      <dt><%= t('.cover_letter')%> :</dt>
+      <dd><%= job_application.cover_letter %></dd>
+    <% end %>
 
-    <%= link_to t('.download_resume', name: job_application.name), job_application.resume.url %><span class="preview">&nbsp;</span><br>
-  </span>
+    <% if job_application.resume.url %>
+      <dt><%= t('.resume')%> :</dt>
+      <dd><%= link_to t('.download_resume', name: job_application.name), job_application.resume.url %></dd>
+    <% end %>
+  </dl>
+  
+  
 
-  <%= action_icon(:delete,  delete_url, t('delete', scope: 'refinery.admin.pages' ), delete_options ) %>
+  <div class="actions">
+    <%= action_icon(:delete,  delete_url, t('delete', scope: 'refinery.admin.pages' ), delete_options ) %>
+  </div>
 </li>

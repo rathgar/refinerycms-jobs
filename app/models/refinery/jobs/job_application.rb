@@ -16,13 +16,21 @@ module Refinery
                    other_fields:     [:phone],
                    extra_spam_words: %w()
 
-      validates_presence_of :name, :phone, :email, :cover_letter
+      validates_presence_of :name, :phone, :email
       validates :email, format: {
         with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       }, length: { maximum: 255 }
-      validates             :resume, presence: true
+      validates :cover_letter, presence: true, if: :cover_letter?
+      validates :resume, presence: true, if: :resume_required?
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 
+      def resume_required?
+        true
+      end
+
+      def cover_letter?
+        true
+      end
     end
   end
 end

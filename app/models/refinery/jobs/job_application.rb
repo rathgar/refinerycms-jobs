@@ -20,7 +20,7 @@ module Refinery
       validates :email, format: {
         with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       }, length: { maximum: 255 }
-      validates :cover_letter, presence: true, if: :cover_letter?
+      validates :cover_letter, presence: true, if: :cover_letter_required?
       validates :resume, presence: true, if: :resume_required?
       validates_with Refinery::Jobs::Validators::FileSizeValidator
 
@@ -28,7 +28,7 @@ module Refinery
         true
       end
 
-      def cover_letter?
+      def cover_letter_required?
         true
       end
     end

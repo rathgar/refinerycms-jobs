@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- spec/*`.split("\n")
 
   # Runtime dependencies
-  s.add_dependency 'refinerycms-core', '~> 3.0.0'
-  s.add_dependency 'refinerycms-settings', '~> 3.0.0'
+  s.add_dependency 'refinerycms-core', ['>= 3.0.0', '< 5.0']
+  s.add_dependency 'refinerycms-settings', ['>= 3.0.0', '< 5.0']
   s.add_dependency 'globalize', ['>= 4.0.0', '< 5.2']
   s.add_dependency 'friendly_id-globalize'
   s.add_dependency 'dragonfly', '~> 1.0.7'

@@ -16,6 +16,8 @@
   <% else %>
     <%= t('.no_open_positions') %>
   <% end %>
+
+  <%= render partial: '/refinery/jobs/job_applications/form', locals: { jobs: @jobs, job: nil, job_application: @job_application } %>
 <% end %>
 
 <%= render :partial => "/refinery/content_page" %>

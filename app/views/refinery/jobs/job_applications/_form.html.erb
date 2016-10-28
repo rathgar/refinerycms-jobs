@@ -1,6 +1,6 @@
 <%= form_for [refinery, job_application], url: refinery.jobs_job_applications_path, html: { multipart: true } do |f| %>
 
-  <h2><%= t('.job_application_for_position', job_title: @job.title) %></h2>
+  <h2><%= t('.job_application_for_position', job_title: job.title) if job.present? %></h2>
 
   <%= render '/refinery/admin/error_messages', {object: @job_application, include_object_name: true} %>
 
@@ -19,7 +19,7 @@
     <%= f.telephone_field :phone, class: 'text', required: 'required' %>
   </div>
 
-  <% if !jobs.nil? %>
+  <% if jobs.present? %>
     <% if jobs.many? %>
       <div class='field'>
         <%= f.label :job_id, class: 'required' %>
@@ -28,6 +28,8 @@
     <% else %>
       <%= f.hidden_field :job_id, value: jobs.first.id %>
     <% end %>
+  <% else %>
+    <%= f.hidden_field :job_id, value: job.id %>
   <% end %>
 
   <div class='field'>

@@ -59,7 +59,7 @@
     <% end %>
   </p>
 
-  <%= render :partial => "/refinery/jobs/job_applications/form" %>
+  <%= render partial: '/refinery/jobs/job_applications/form', locals: { jobs: nil, job: @job, job_application: @job_application } %>
 
   <p><%= link_to t('.back_to_list'), refinery.jobs_jobs_path %></p>
 <% end %>

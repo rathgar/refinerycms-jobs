@@ -3,45 +3,37 @@ module Refinery
     class JobApplicationsController < ::ApplicationController
 
       before_action :find_page
-      before_action :find_job, only: [:new, :create, :show]
+      before_action :find_job, only: [:new, :create, :thank_you]
 
       def new
         @job_application = Refinery::Jobs::JobApplication.new
         present(@page)
       end
 
+      def thank_you
+      end
+
       def create
         @job_application = Refinery::Jobs::JobApplication.new(job_application_params)
         @job_application.job_id ||= @job.id
 
-        if !@job_application.job_id.nil?
-          if @job_application.save
-            if @job_application.ham? || Refinery::Jobs.send_notifications_for_job_applications_marked_as_spam
-              begin
-                JobMailer.notification(@job_application, request).deliver
-              rescue
-                logger.warn "There was an error delivering on job application notification.\n#{$!}\n"
-              end
-
-              if Refinery::Jobs::Setting.send_confirmation?
-                begin
-                  JobMailer.confirmation(@job_application, request).deliver
-                rescue
-                  logger.warn "There was an error delivering on job application confirmation:\n#{$!}\n"
-                end
-              end
-            end
-
-            redirect_to refinery.jobs_job_job_application_path(@job, @job_application)
-          else
-            render action: 'new'
-          end
+        if job_application_saved_and_validated?
+          redirect_to refinery.thank_you_jobs_job_applications_path(@job)
         else
-          error_404
+          render action: 'new'
         end
       end
 
       protected
+
+      def job_application_saved_and_validated?
+        if @job_application.valid?
+          @filter = SpamFilter.new(@job_application, request)
+          @filter.call
+
+          @filter.valid?
+        end
+      end
 
       def find_job
         @job = Refinery::Jobs::Job.live.friendly.find(params[:job_id] || params[:job_application][:job_id])

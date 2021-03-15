@@ -4,6 +4,8 @@ en:
       refinery_jobs:
         title: Jobs
     jobs:
+      spam_filter:
+        captcha_invalid: Sorry, we could not verify that you aren't a robot
       config:
         from_name: "%{name} [%{site_name}]"
       admin:
@@ -64,8 +66,10 @@ en:
           apply: Apply
           mandatory_fields: <sup>*</sup> fields are required.
         show:
-          job_application_successfully_submitted: 'Your job application for the <strong>"%{job_title}"</strong> position was successfully submitted. <br>You will receive a confirmation email.<br><br>Thank you.'
+        thank_you:
           back_to_list: Back to jobs list
+          thanks: Thank you
+          job_application_successfully_submitted: 'Your application for the job <strong>"%{job_title}"</strong> (ref #%{job_ref}) was successfully submitted. <br>You will receive a confirmation email.'
       job_mailer:
         notification:
           greeting: Hello

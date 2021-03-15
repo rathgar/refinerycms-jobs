@@ -5,7 +5,11 @@ Refinery::Core::Engine.routes.draw do
     resources :job_applications, only: [:new, :create]
 
     resources :jobs, path: '', only: [:index, :show] do
-      resources :job_applications, only: [:new, :create, :show]
+      resources :job_applications, only: [:new, :create]
+    end
+
+    resources :jobs, path: '', only: [], as: :job_applications, controller: 'job_applications' do
+      get :thank_you, path: Refinery::Jobs.page_path_thank_you, on: :collection
     end
   end
 

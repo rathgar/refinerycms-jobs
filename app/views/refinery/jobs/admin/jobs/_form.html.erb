@@ -19,6 +19,21 @@
   </div>
 
   <div class='field'>
+    <%= f.label :employment_date -%>
+    <%= f.date_field :employment_date, :class => "larger"  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :contact -%>
+    <%= f.text_field :contact, :class => "larger widest"  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :published_at -%>
+    <%= f.datetime_select :published_at %>
+  </div>
+
+  <div class='field'>
     <%= f.label :description -%>
     <%= f.text_area :description, :rows => 20, :class => 'wymeditor widest' -%>
   </div>
@@ -61,21 +76,6 @@
   <div class='field'>
     <%= f.label :length -%>
     <%= f.text_field :length, :class => "larger"  -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :employment_date -%>
-    <%= f.date_field :employment_date, :class => "larger"  -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :contact -%>
-    <%= f.text_field :contact, :class => "larger widest"  -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :published_at -%>
-    <%= f.datetime_select :published_at %>
   </div>
 
   <div id="field">

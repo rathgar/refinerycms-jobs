@@ -52,7 +52,7 @@ en:
           languages: Languages ​​asked
           salary: Salary
           hours: Number of hours per week
-          employment_terms: Employment terms
+          employment_terms: Employment term
           length: Length of employment
           employment_date: Employment date
           contact: Name of contact person
@@ -96,7 +96,7 @@ en:
         languages: Languages ​​asked
         salary: Salary
         hours: Number of hours per week
-        employment_terms: Employment terms
+        employment_terms: Employment term
         length: Length of employment
         employment_date: Employment date
         contact: Name of contact person

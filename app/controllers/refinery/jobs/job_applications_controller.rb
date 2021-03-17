@@ -1,3 +1,5 @@
+require 'refinery/jobs/spam_filter'
+
 module Refinery
   module Jobs
     class JobApplicationsController < ::ApplicationController

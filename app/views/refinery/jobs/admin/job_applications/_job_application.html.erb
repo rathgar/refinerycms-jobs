@@ -29,11 +29,11 @@
 
     <% if job_application.resume.url %>
       <dt><%= t('.resume')%> :</dt>
-      <dd><%= link_to t('.download_resume', name: job_application.name), job_application.resume.url %></dd>
+      <dd><%= link_to t('.download_resume', name: job_application.name), job_application.resume.remote_url %></dd>
     <% end %>
   </dl>
-  
-  
+
+
 
   <div class="actions">
     <%= action_icon(:delete,  delete_url, t('delete', scope: 'refinery.admin.pages' ), delete_options ) %>

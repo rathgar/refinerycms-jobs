@@ -15,7 +15,7 @@
 
 <% if @job_application.resume %>
   <%= raw t('.resume') %>:
-  <%= raw @job_application.resume.remote_url(:host => @host) %>
+  <%= raw @job_application.resume.url(:host => @host) %>
 <% end %>
 
 <%=raw t('.job_application_ends') %>
